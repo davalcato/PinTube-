@@ -13,18 +13,20 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var videos: [Video] = {
         var WillChannel = Channel()
         WillChannel.name = "WillIsTheBestChannel"
-        WillChannel.profileImageName = "Cutie_profile"
+        WillChannel.profileImageName = "profile"
         
         var blankSpaceVideo = Video()
         blankSpaceVideo.title = "Taylor Swift - Blank Space"
         blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
         blankSpaceVideo.channel = WillChannel
+        blankSpaceVideo.numberOfViews = 26722901
+        
         
         var badbloodVideo = Video()
         badbloodVideo.title = "Draya Michele - Bad Blood"
         badbloodVideo.thumbnailImageName = "Bad_blood"
         badbloodVideo.channel = WillChannel 
-        
+        badbloodVideo.numberOfViews = 9382802
         
         return [blankSpaceVideo, badbloodVideo]
     }()
