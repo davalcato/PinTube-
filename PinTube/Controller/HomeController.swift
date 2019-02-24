@@ -32,7 +32,20 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         
         setupMenuBar()
+        setupNavBarButtons()
        
+    }
+    
+    func setupNavBarButtons() {
+        let searchImage = UIImage(named: "search_icon")!.withRenderingMode(.alwaysOriginal)
+        let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        navigationItem.rightBarButtonItems = [searchBarButtonItem]
+        
+    }
+    
+    @objc func handleSearch() {
+        print(123)
+        
     }
     
     let menuBar: MenuBar = {
