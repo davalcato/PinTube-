@@ -24,16 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
         
-        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 230, green: 32, blue: 31)
+        UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 156, green: 181, blue: 108)
         
-        // get rid of black bar underneath the navigation bar
+        
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         
         application.statusBarStyle = .lightContent
         
         let statusBarBackgroundView = UIView()
-        statusBarBackgroundView.backgroundColor = UIColor.rgb(red: 194, green: 31, blue: 31)
+        statusBarBackgroundView.backgroundColor = UIColor.rgb(red: 132, green: 178, blue: 41)
         
         window?.addSubview(statusBarBackgroundView)
         window?.addConstraintsWithFormat(format: "H:|[v0]|", views: statusBarBackgroundView)
