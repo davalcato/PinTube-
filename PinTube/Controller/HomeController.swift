@@ -19,14 +19,14 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         blankSpaceVideo.title = "Taylor Swift - Blank Space"
         blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
         blankSpaceVideo.channel = WillChannel
-        blankSpaceVideo.numberOfViews = 26722901
+        blankSpaceVideo.numberOfViews = 267873822901
         
         
         var badbloodVideo = Video()
         badbloodVideo.title = "Draya Michele - Bad Blood"
         badbloodVideo.thumbnailImageName = "Bad_blood"
         badbloodVideo.channel = WillChannel 
-        badbloodVideo.numberOfViews = 9382802
+        badbloodVideo.numberOfViews = 93802932802
         
         return [blankSpaceVideo, badbloodVideo]
     }()
