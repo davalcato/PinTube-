@@ -36,7 +36,11 @@ class VideoCell: BaseCell {
             if let profileImageName = video?.channel?.profileImageName {
                 userProfileImageView.image = UIImage(named: profileImageName)
                 
-                let subtitleText = "\(String(describing: video?.channel?.name)) • \(String(describing: video?.numberOfViews)) • 2 years ago "
+            }
+            
+            if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
+                
+                let subtitleText = "\(String(describing: channelName)) • \(String(describing: numberOfViews)) • 2 years ago "
                 subtitleTextView.text = subtitleText
                 
             }
