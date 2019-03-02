@@ -10,6 +10,7 @@ import UIKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    
     var videos: [Video] = {
         var WillChannel = Channel()
         WillChannel.name = "WillIsTheBestChannel"
@@ -19,20 +20,42 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         blankSpaceVideo.title = "Taylor Swift - Blank Space"
         blankSpaceVideo.thumbnailImageName = "taylor_swift_blank_space"
         blankSpaceVideo.channel = WillChannel
-        blankSpaceVideo.numberOfViews = 267873822901
+        blankSpaceVideo.numberOfViews = 26787382
+        
         
         
         var badbloodVideo = Video()
         badbloodVideo.title = "Draya Michele - Bad Blood"
         badbloodVideo.thumbnailImageName = "Bad_blood"
         badbloodVideo.channel = WillChannel 
-        badbloodVideo.numberOfViews = 93802932802
+        badbloodVideo.numberOfViews = 938029328
         
         return [blankSpaceVideo, badbloodVideo]
     }()
+    
+    
+    func fetchVideos() {
+        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json")
+        URLSession.shared.dataTask(with: url! as URL) { (data, respones, error) in
+            
+            if error != nil {
+                print(error as Any)
+                return
+                
+            }
+            
+            let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print(str!)
+        
+            
+        }.resume()
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchVideos()
         
         navigationItem.title = "Home"
         
@@ -51,12 +74,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
-        
         setupMenuBar()
         setupNavBarButtons()
        
     }
     
+
     func setupNavBarButtons() {
         let searchImage = UIImage(named: "search_icon")!.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
