@@ -119,6 +119,7 @@ class VideoCell: BaseCell {
         imageView.image = UIImage(named: "profile")
         imageView.layer.cornerRadius = 22
         imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
