@@ -85,8 +85,11 @@ class VideoCell: BaseCell {
                     
                 }
                 
-                self.thumbnailImageView.image = UIImage(data: data!)
-                
+                DispatchQueue.main.async {
+                     self.thumbnailImageView.image = UIImage(data: data!)
+                    
+                }
+    
             }.resume()
          
         }
