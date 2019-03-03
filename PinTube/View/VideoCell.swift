@@ -33,14 +33,7 @@ class VideoCell: BaseCell {
             
             setupThumbnailImage()
             
-            
-//            thumbnailImageView.image = UIImage(named: (video?.thumbnailImageName)!)
-            
-            
-            if let profileImageName = video?.channel?.profileImageName {
-                userProfileImageView.image = UIImage(named: profileImageName)
-                
-            }
+            setupProfileImage()
             
             if let channelName = video?.channel?.name, let numberOfViews = video?.numberOfViews {
                 
@@ -72,17 +65,35 @@ class VideoCell: BaseCell {
         
     }
     
+    func setupProfileImage() {
+        if let profileImageUrl = video?.channel?.profileImageName {
+            let url = NSURL(string: profileImageUrl)
+            URLSession.shared.dataTask(with: url! as URL) { (data, respones, error) in
+                
+                if error != nil {
+                    print(error!)
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    self.userProfileImageView.image = UIImage(data: data!)
+                    
+                }
+                
+            }.resume()
+        
+        }
+    
+    }
+    
     func setupThumbnailImage() {
         if let thumbnailImageUrl = video?.thumbnailImageName {
-            
-            
             let url = NSURL(string: thumbnailImageUrl)
             URLSession.shared.dataTask(with: url! as URL) { (data, respones, error) in
                 
                 if error != nil {
                     print(error!)
                     return
-                    
                 }
                 
                 DispatchQueue.main.async {
@@ -91,7 +102,6 @@ class VideoCell: BaseCell {
                 }
     
             }.resume()
-         
         }
         
     }
