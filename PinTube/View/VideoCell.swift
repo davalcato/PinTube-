@@ -46,7 +46,6 @@ class VideoCell: BaseCell {
             }
             
             // measure title text
-            
             if let title = video?.title {
                 let size = CGSize(width: -16 - 44 - 8 - 16, height: 1000)
                 let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
@@ -109,6 +108,8 @@ class VideoCell: BaseCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Take a leap - Blank Space"
         label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.lineBreakMode = .byWordWrapping
         return label
         
     }()
@@ -149,7 +150,6 @@ class VideoCell: BaseCell {
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .right, relatedBy: .equal, toItem: thumbnailImageView, attribute: .right, multiplier: 1, constant: 0))
         
         //height constraint
-        
         titleLabelHeightConstraint = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 44)
         addConstraint(titleLabelHeightConstraint!)
         
