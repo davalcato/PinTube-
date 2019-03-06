@@ -12,6 +12,14 @@ class SettingsLauncher: NSObject {
     
     let blackView = UIView()
     
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = UIColor.white
+        return cv
+        
+    }()
+    
     @objc func showSettings() {
         //show menu
         
@@ -21,6 +29,13 @@ class SettingsLauncher: NSObject {
             blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
             
             window.addSubview(blackView)
+            window.addSubview(collectionView)
+            
+            
+            let height: CGFloat = 200
+            let y = window.frame.height - height
+            collectionView.frame = CGRect(x: 0, y: 400, width: 400, height: 200)
+            
             
             blackView.frame = window.frame
             blackView.alpha = 0
