@@ -127,7 +127,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         if let window = UIApplication.shared.keyWindow {
             
             let blackView = UIView()
-            blackView.backgroundColor = UIColor.black
+            blackView.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
             
             window.addSubview(blackView)
             
