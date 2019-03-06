@@ -122,8 +122,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     @objc func handleMore() {
+       //show menu
         
-        
+        if let window = UIApplication.shared.keyWindow {
+            
+            let blackView = UIView()
+            blackView.backgroundColor = UIColor.black
+            
+            window.addSubview(blackView)
+            
+            blackView.frame = window.frame
+            
+        }
+    
     }
     
     @objc func handleSearch() {

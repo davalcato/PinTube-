@@ -221,6 +221,7 @@
 				75A60E652219F0BE0041C1B3 /* Frameworks */,
 				75A60E662219F0BE0041C1B3 /* Resources */,
 				5E45F6E1B54A3196FA01CB7F /* [CP] Embed Pods Frameworks */,
+				75239721222F5CD10029B004 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -405,6 +406,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinTube/Pods-PinTube-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		75239721222F5CD10029B004 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "custom_sim=`xcrun simctl list | grep 'Custom Simulators' | awk -F'[()]' '{print $2}'`\nif [ ! -z \"${custom_sim}\" ] && [ \"${TARGET_DEVICE_IDENTIFIER}\" = \"${custom_sim}\" ]; then\n/bin/sh launch_multiple_simulators.sh\nfi\n";
 		};
 		96ADECDA8BA2508CA51F827F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
