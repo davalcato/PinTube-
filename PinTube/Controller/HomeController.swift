@@ -132,6 +132,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             window.addSubview(blackView)
             
             blackView.frame = window.frame
+            blackView.alpha = 0
+            
+            UIView.animate(withDuration: 0.5) {
+                blackView.alpha = 1
+            }
             
         }
     
