@@ -33,7 +33,10 @@ extension UIView {
 
 let imageCache = NSCache<AnyObject, AnyObject>()
 
-extension UIImageView {
+class CustomImageView: UIImageView {
+    
+    var imageUrlString: String?
+    
     
     func loadImageUsingUrlString(urlString: String) {
         let url = NSURL(string: urlString)
