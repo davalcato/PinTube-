@@ -39,6 +39,9 @@ class CustomImageView: UIImageView {
     
     
     func loadImageUsingUrlString(urlString: String) {
+        
+        imageUrlString = urlString
+        
         let url = NSURL(string: urlString)
         
         image = nil
@@ -62,9 +65,13 @@ class CustomImageView: UIImageView {
                 
                 let imageToCache = UIImage(data: data!)
                 
-                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
+                if self.imageUrlString == urlString {
+                    self.image = imageToCache
+                    
+                }
                 
-                self.image = imageToCache
+                
+                imageCache.setObject(imageToCache!, forKey: urlString as AnyObject)
                 
             }
             
