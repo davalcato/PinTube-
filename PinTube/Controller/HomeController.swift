@@ -121,13 +121,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    let blackView = UIView()
+    
     @objc func handleMore() {
        //show menu
         
         if let window = UIApplication.shared.keyWindow {
-            
-            let blackView = UIView()
             blackView.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
+            
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDismiss)))
             
             window.addSubview(blackView)
             
@@ -135,11 +137,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             blackView.alpha = 0
             
             UIView.animate(withDuration: 0.5) {
-                blackView.alpha = 1
+                self.blackView.alpha = 1
             }
             
         }
     
+    }
+    
+    @objc func handleDismiss() {
+        UIView.animate(withDuration: 0.5) {
+            self.blackView.alpha = 0
+        }
+        
     }
     
     @objc func handleSearch() {
