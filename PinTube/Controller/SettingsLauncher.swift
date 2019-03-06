@@ -42,6 +42,8 @@ class SettingsLauncher: NSObject {
             
             UIView.animate(withDuration: 0.5) {
                 self.blackView.alpha = 1
+                
+                self.collectionView.frame = CGRect(x: 0, y: 400, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }
             
         }
