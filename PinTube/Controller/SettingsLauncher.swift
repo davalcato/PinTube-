@@ -40,11 +40,12 @@ class SettingsLauncher: NSObject {
             blackView.frame = window.frame
             blackView.alpha = 0
             
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                
                 self.blackView.alpha = 1
                 
-                self.collectionView.frame = CGRect(x: 0, y: 400, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
-            }
+                self.collectionView.frame = CGRect(x: -1, y: -1, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+            }, completion: nil)
             
         }
         
@@ -52,6 +53,12 @@ class SettingsLauncher: NSObject {
     
     @objc func handleDismiss() {
         UIView.animate(withDuration: 0.5) {
+            
+            if let window = UIApplication.shared.keyWindow {
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+                
+            }
+            
             self.blackView.alpha = 0
         }
         
