@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsLauncher: NSObject {
+class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     let blackView = UIView()
     
@@ -19,6 +19,9 @@ class SettingsLauncher: NSObject {
         return cv
         
     }()
+    
+    let cellId = "cellId"
+    
     
     @objc func showSettings() {
         //show menu
@@ -40,11 +43,11 @@ class SettingsLauncher: NSObject {
             blackView.frame = window.frame
             blackView.alpha = 0
             
-            UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
                 
                 self.blackView.alpha = 1
                 
-                self.collectionView.frame = CGRect(x: -1, y: -1, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+                self.collectionView.frame = CGRect(x: -1, y: 1, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
             }, completion: nil)
             
         }
@@ -53,20 +56,32 @@ class SettingsLauncher: NSObject {
     
     @objc func handleDismiss() {
         UIView.animate(withDuration: 0.5) {
+            self.blackView.alpha = 0
             
             if let window = UIApplication.shared.keyWindow {
                 self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width: self.collectionView.frame.width, height: self.collectionView.frame.height)
                 
             }
             
-            self.blackView.alpha = 0
         }
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        return cell
+    }
     
     override init() {
         super.init()
-        //execute code here in the future 
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        collectionView.register(SettingCell.self, forCellWithReuseIdentifier: cellId)
     }
 }
