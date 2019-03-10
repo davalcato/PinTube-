@@ -13,6 +13,12 @@ class SettingCell: BaseCell {
     var setting: Setting? {
         didSet {
             nameLabel.text = setting?.name
+            
+            if let imageName =  setting?.imageName {
+                iconImageView.image = UIImage(named: imageName)
+                
+            }
+            
         }
         
     }
@@ -36,7 +42,7 @@ class SettingCell: BaseCell {
     
     override func setupViews() {
         super.setupViews()
-//        NSLayoutConstraint.activate(<#[NSLayoutConstraint]#>)
+
         
         addSubview(nameLabel)
         addSubview(iconImageView)
