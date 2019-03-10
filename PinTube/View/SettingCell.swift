@@ -16,6 +16,8 @@ class SettingCell: BaseCell {
             backgroundColor = isHighlighted ? UIColor.darkGray : UIColor.white
             print(isHighlighted)
             
+            nameLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            
         }
         
         
