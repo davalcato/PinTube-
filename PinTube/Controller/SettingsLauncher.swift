@@ -34,6 +34,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }()
     
     let cellId = "cellId"
+    let cellHeight: CGFloat = 50
     
     let settings: [Setting] = {
         return [Setting(name: "Settings", imageName: "settings"), Setting(name: "Terms & privacy policy", imageName: "privacy"), Setting(name: "Send Feedback", imageName: "feedback"), Setting(name: "Help", imageName: "help"), Setting(name: "Switch Account", imageName: "switch"), Setting(name: "Cancel", imageName: "cancel")]
@@ -54,9 +55,9 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             window.addSubview(collectionView)
             
             
-            let height: CGFloat = 200
+            let height: CGFloat = CGFloat(settings.count) * cellHeight
             let y = window.frame.height - height
-            collectionView.frame = CGRect(x: 0, y: 400, width: 400, height: 200)
+            collectionView.frame = CGRect(x: 0, y: 400, width: 400, height: 300)
             
             
             blackView.frame = window.frame
@@ -101,7 +102,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
+        return CGSize(width: collectionView.frame.width, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
