@@ -10,6 +10,14 @@ import UIKit
 
 class SettingCell: BaseCell {
     
+    var setting: Setting? {
+        didSet {
+            nameLabel.text = setting?.name
+        }
+        
+    }
+    
+    
     let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Setting"
