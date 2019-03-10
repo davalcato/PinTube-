@@ -10,6 +10,18 @@ import UIKit
 
 class SettingCell: BaseCell {
     
+    override var isHighlighted: Bool {
+        didSet{
+            
+            backgroundColor = isHighlighted ? UIColor.darkGray : UIColor.white
+            print(isHighlighted)
+            
+        }
+        
+        
+    }
+    
+    
     var setting: Setting? {
         didSet {
             nameLabel.text = setting?.name
