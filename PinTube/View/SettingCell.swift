@@ -18,6 +18,8 @@ class SettingCell: BaseCell {
             
             nameLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
             
+            iconImageView.tintColor = isHighlighted ? UIColor.white : UIColor.black
+            
         }
         
         
