@@ -125,7 +125,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     @objc func handleMore() {
        //show menu
-        settingsLauncher.showSettings()
+//        settingsLauncher.showSettings()
+        
+        let dummySettingsViewController = UIViewController()
+        navigationController?.pushViewController(dummySettingsViewController, animated: true)
         
     }
     

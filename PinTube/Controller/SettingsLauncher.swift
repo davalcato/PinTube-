@@ -110,10 +110,23 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let setting = settings[indexPath.item]
-        print(setting.name)
-        handleDismiss()
+//        let setting = settings[indexPath.item]
+//        print(setting.name)
         
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.blackView.alpha = 0
+            
+            if let window = UIApplication.shared.keyWindow {
+                self.collectionView.frame = CGRect(x: 0, y: window.frame.height, width:
+                    self.collectionView.frame.width, height:
+                    self.collectionView.frame.height)
+            }
+        }) { (completed: Bool) in
+            
+            
+            
+            
+        }
         
     }
     
