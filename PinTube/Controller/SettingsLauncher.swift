@@ -112,6 +112,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let setting = settings[indexPath.item]
         print(setting.name)
+        handleDismiss()
         
         
     }
