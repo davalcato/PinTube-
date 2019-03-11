@@ -121,14 +121,23 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    let settingsLauncher = SettingsLauncher()
+    lazy var settingsLauncher: SettingsLauncher = {
+        let launcher = SettingsLauncher()
+        launcher.homeController = self
+        return launcher
+    }()
     
     @objc func handleMore() {
        //show menu
-//        settingsLauncher.showSettings()
-        
+        settingsLauncher.showSettings()
+  
+    }
+    
+    
+    func showControllerForSettings() {
         let dummySettingsViewController = UIViewController()
         navigationController?.pushViewController(dummySettingsViewController, animated: true)
+        
         
     }
     

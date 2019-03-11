@@ -42,6 +42,8 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         
     }()
     
+    var homeController: HomeController?
+    
     
     @objc func showSettings() {
         //show menu
@@ -124,7 +126,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         }) { (completed: Bool) in
             
             
-            
+            self.homeController?.showControllerForSettings()
             
         }
         
