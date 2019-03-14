@@ -126,7 +126,11 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
         }) { (completed: Bool) in
             
             let setting = self.settings[indexPath.item]
-            self.homeController?.showControllerForSetting(setting: setting)
+            if setting.name != "Cancel" {
+                self.homeController?.showControllerForSetting(setting: setting)
+                
+                
+            }
             
         }
         
