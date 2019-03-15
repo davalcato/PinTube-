@@ -138,6 +138,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         let greenview = UIView()
         greenview.backgroundColor = UIColor.rgb(red: 156, green: 181, blue: 108)
+        view.addSubview(greenview)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: greenview)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]|", views: greenview)
+        
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
