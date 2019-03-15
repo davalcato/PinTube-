@@ -136,11 +136,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     private func setupMenuBar() {
         navigationController?.hidesBarsOnSwipe = true
         
-        
+        let greenview = UIView()
+        greenview.backgroundColor = UIColor.rgb(red: 156, green: 181, blue: 108)
         
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
         view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
+        
+        if #available(iOS 11.0, *) {
+            menuBar.topAnchor.constraint(equalToSystemSpacingBelow: topLayoutGuide.bottomAnchor, multiplier: 1.0).isActive = true
+        } else {
+            // Fallback on earlier versions
+        }
         
     }
     
