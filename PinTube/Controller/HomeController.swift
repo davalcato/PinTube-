@@ -66,12 +66,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         fetchVideos()
         
-        navigationItem.title = "Home"
-        
         navigationController?.navigationBar.isTranslucent = false
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: -332, height: 21))
-        titleLabel.text = "Home"
+        titleLabel.text = "  Home"
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
