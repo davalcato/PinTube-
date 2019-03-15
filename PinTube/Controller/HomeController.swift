@@ -41,26 +41,26 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                     channel.name = channelDictionary["name"] as? String
                     channel.profileImageName = channelDictionary["profile_image_name"] as? String
                     
-                    video.channel = channel 
+                    video.channel = channel
                     
                     self.videos?.append(video)
                     
                 }
-                    
-                    DispatchQueue.main.async {
+                
+                DispatchQueue.main.async {
                     self.collectionView?.reloadData()
-                   
+                    
                 }
-            
+                
             } catch let jsonError {
                 print(jsonError)
                 
             }
             
-        }.resume()
+            }.resume()
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,7 +73,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
-
+        
         collectionView?.backgroundColor = UIColor.white
         
         collectionView?.register(VideoCell.self, forCellWithReuseIdentifier: "cellId")
@@ -83,10 +83,10 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         setupMenuBar()
         setupNavBarButtons()
-       
+        
     }
     
-
+    
     func setupNavBarButtons() {
         let searchImage = UIImage(named: "search_icon")!.withRenderingMode(.alwaysOriginal)
         let searchBarButtonItem = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
@@ -103,9 +103,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     @objc func handleMore() {
-       //show menu
+        //show menu
         settingsLauncher.showSettings()
-  
+        
     }
     
     
@@ -163,7 +163,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-   
+    
 }
 
 
