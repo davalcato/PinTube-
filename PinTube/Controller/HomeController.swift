@@ -134,9 +134,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }()
     
     private func setupMenuBar() {
+        navigationController?.hidesBarsOnSwipe = true
+        
+        
+        
         view.addSubview(menuBar)
         view.addConstraintsWithFormat(format: "H:|[v0]|", views: menuBar)
-        view.addConstraintsWithFormat(format: "V:|[v0(50)]|", views: menuBar)
+        view.addConstraintsWithFormat(format: "V:|[v0(50)]", views: menuBar)
         
     }
     
