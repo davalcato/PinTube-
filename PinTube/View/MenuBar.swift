@@ -64,7 +64,10 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         
         horizontalBarLeftAnchorConstraint?.constant = x
         
-        
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.layoutIfNeeded()
+        }, completion: nil)
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
