@@ -17,6 +17,7 @@
 		75239723222F6FB50029B004 /* SettingsLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75239722222F6FB50029B004 /* SettingsLauncher.swift */; };
 		75239726223224260029B004 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75239725223224250029B004 /* SettingCell.swift */; };
 		7523972B223CB1F50029B004 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523972A223CB1F50029B004 /* ApiService.swift */; };
+		7523972D223F10F30029B004 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523972C223F10F30029B004 /* FeedCell.swift */; };
 		75A60E6C2219F0BE0041C1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */; };
 		75A60E712219F0BE0041C1B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A60E6F2219F0BE0041C1B3 /* Main.storyboard */; };
 		75A60E732219F0C00041C1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A60E722219F0C00041C1B3 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		75239722222F6FB50029B004 /* SettingsLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLauncher.swift; sourceTree = "<group>"; };
 		75239725223224250029B004 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		7523972A223CB1F50029B004 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		7523972C223F10F30029B004 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		75A60E682219F0BE0041C1B3 /* PinTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75A60E702219F0BE0041C1B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 		75239716221D1D7C0029B004 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7523972C223F10F30029B004 /* FeedCell.swift */,
 				75239717221D1DAF0029B004 /* VideoCell.swift */,
 				7523971C221D205E0029B004 /* MenuBar.swift */,
 				75239725223224250029B004 /* SettingCell.swift */,
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75239718221D1DAF0029B004 /* VideoCell.swift in Sources */,
+				7523972D223F10F30029B004 /* FeedCell.swift in Sources */,
 				75239720222341090029B004 /* Video.swift in Sources */,
 				75239726223224260029B004 /* SettingCell.swift in Sources */,
 				75239715221D1C650029B004 /* Extensions.swift in Sources */,
