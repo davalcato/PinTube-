@@ -99,7 +99,17 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     @objc func handleSearch() {
-        print(123)
+       scrollToMenuIndex(menuIndex: 2)
+        
+        
+    }
+    
+    
+    func scrollToMenuIndex(menuIndex: Int) {
+        
+        let indexPath = NSIndexPath(item: menuIndex, section: 0)
+        collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
+        
         
     }
     
