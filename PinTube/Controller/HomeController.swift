@@ -149,7 +149,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
   
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        print(targetContentOffset.pointee.x)
+        let index = targetContentOffset.pointee.x / view.frame.width
+        
+        let indexPath = NSIndexPath(item: Int(index), section: 0)
+      
+        menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
     }
     
     
