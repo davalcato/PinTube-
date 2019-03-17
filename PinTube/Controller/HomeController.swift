@@ -129,6 +129,13 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             // Fallback on earlier versions
         }
         
+        
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.x)
+        
+        menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
