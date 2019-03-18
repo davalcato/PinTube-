@@ -133,6 +133,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
     }
+    
+    let titles = ["Home", "Trending", "Camera", "Account"]
   
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
@@ -141,6 +143,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         let indexPath = NSIndexPath(item: Int(index), section: 0)
       
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
+        
+        if let titleLable = navigationItem.titleView as? UILabel {
+            titleLable.text = titles[Int(index)]
+            
+        }
+        
     }
     
     
