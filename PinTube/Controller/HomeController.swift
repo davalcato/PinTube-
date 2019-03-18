@@ -87,16 +87,16 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     @objc func handleSearch() {
        scrollToMenuIndex(menuIndex: 2)
-        
-        
     }
-    
     
     func scrollToMenuIndex(menuIndex: Int) {
         
         let indexPath = NSIndexPath(item: menuIndex, section: 0)
         collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
         
+        if let titleLable = navigationItem.titleView as? UILabel {
+            titleLable.text = " \(titles[menuIndex]) "
+        }
         
     }
     
@@ -145,8 +145,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
         
         if let titleLable = navigationItem.titleView as? UILabel {
-            titleLable.text = " \(titles[Int(index)]) " 
-            
+            titleLable.text = " \(titles[Int(index)]) "
         }
         
     }
