@@ -145,7 +145,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
         
         if let titleLable = navigationItem.titleView as? UILabel {
-            titleLable.text = titles[Int(index)]
+            titleLable.text = " \(titles[Int(index)]) " 
             
         }
         
