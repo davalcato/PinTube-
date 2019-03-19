@@ -109,7 +109,14 @@ class ApiService: NSObject {
     }
     
     func fetchSubscriptionFeed(completion: @escaping ([Video]) ->()) {
-        let url = NSURL(string: "https://s3-us-west-2.amazonaws.com/youtubeassets/subscriptions.json")
+        fetchFeedForUrlString(urlString: "https://s3-us-west-2.amazonaws.com/youtubeassets/subscriptions.json") { (videos) in
+            completion(videos)
+        }
+        
+    }
+    
+    func fetchFeedForUrlString(urlString: String, completion: @escaping ([Video]) ->()) {
+        let url = NSURL(string: urlString)
         URLSession.shared.dataTask(with: url! as URL) { (data, respones, error) in
             
             if error != nil {
@@ -153,8 +160,8 @@ class ApiService: NSObject {
             }
             
             }.resume()
-        
-    }
+        }
     
+    }
 
-}
+
