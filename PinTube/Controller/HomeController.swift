@@ -90,12 +90,16 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func scrollToMenuIndex(menuIndex: Int) {
-        
         let indexPath = NSIndexPath(item: menuIndex, section: 0)
         collectionView.scrollToItem(at: indexPath as IndexPath, at: [], animated: true)
         
+        setTitleForIndex(index: menuIndex)
+        
+    }
+    
+    private func setTitleForIndex(index: Int) {
         if let titleLable = navigationItem.titleView as? UILabel {
-            titleLable.text = " \(titles[menuIndex]) "
+            titleLable.text = " \(titles[index]) "
         }
         
     }
@@ -144,9 +148,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
       
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
         
-        if let titleLable = navigationItem.titleView as? UILabel {
-            titleLable.text = " \(titles[Int(index)]) "
-        }
+//        if let titleLable = navigationItem.titleView as? UILabel {
+//            titleLable.text = " \(titles[Int(index)]) "
+//        }
+        
+        setTitleForIndex(index: Int(index))
         
     }
     
