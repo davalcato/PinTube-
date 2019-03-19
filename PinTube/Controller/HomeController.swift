@@ -14,6 +14,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     let cellId = "cellId"
     let trendingCellId = "trendingCellId"
+    let subscriptionCellId = "subscriptionCellId"
     
     let titles = ["Home", "Trending", "Camera", "Account"]
     
@@ -44,6 +45,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         collectionView?.backgroundColor = UIColor.white
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
+        collectionView.register(SubscriptionCell.self, forCellWithReuseIdentifier: subscriptionCellId)
         
         
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
@@ -161,6 +163,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         if indexPath.item == 1 {
             return collectionView.dequeueReusableCell(withReuseIdentifier: trendingCellId, for: indexPath)
+        } else if indexPath.item == 2 {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: subscriptionCellId, for: indexPath)
+            
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
