@@ -13,6 +13,9 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     var videos: [Video]?
     
     let cellId = "cellId"
+    let trendingCellId = "trendingCellId"
+    
+    let titles = ["Home", "Trending", "Camera", "Account"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,12 +39,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.minimumLineSpacing = 0
-            
         }
         
         collectionView?.backgroundColor = UIColor.white
-
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: trendingCellId)
+        
         
         collectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         collectionView.scrollIndicatorInsets = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
@@ -71,7 +74,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
-    
     func showControllerForSetting(setting: Setting) {
         let dummySettingsViewController = UIViewController()
         dummySettingsViewController.view.backgroundColor = UIColor.white
@@ -79,9 +81,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        
         navigationController?.pushViewController(dummySettingsViewController, animated: true)
-        
         
     }
     
@@ -130,15 +130,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         } else {
             // Fallback on earlier versions
         }
-        
-        
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
     }
-    
-    let titles = ["Home", "Trending", "Camera", "Account"]
   
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
@@ -162,6 +158,11 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if indexPath.item == 1 {
+            return collectionView.dequeueReusableCell(withReuseIdentifier: trendingCellId, for: indexPath)
+        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         return cell
