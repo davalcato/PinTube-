@@ -12,16 +12,16 @@ class ApiService: NSObject {
     
     static let sharedInstance = ApiService()
     
+    let baseUrl = "https://s3-us-west-2.amazonaws.com/youtubeassets"
+    
     func fetchVideos(completion: @escaping ([Video]) ->()) {
-        fetchFeedForUrlString(urlString: "https://s3-us-west-2.amazonaws.com/youtubeassets/home.json") { (videos) in
+        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json") { (videos) in
             completion(videos)
-            
         }
-        
     }
     
     func fetchTrendingFeed(completion: @escaping ([Video]) ->()) {
-        fetchFeedForUrlString(urlString: "https://s3-us-west-2.amazonaws.com/youtubeassets/trending.json") { (videos) in
+        fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json") { (videos) in
             completion(videos)
             
         }
@@ -29,7 +29,7 @@ class ApiService: NSObject {
     }
     
     func fetchSubscriptionFeed(completion: @escaping ([Video]) ->()) {
-        fetchFeedForUrlString(urlString: "https://s3-us-west-2.amazonaws.com/youtubeassets/subscriptions.json") { (videos) in
+        fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json") { (videos) in
             completion(videos)
             
         }
