@@ -23,18 +23,12 @@ class ApiService: NSObject {
     }
     
     func fetchTrendingFeed(completion: @escaping ([Video]) ->()) {
-        fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json") { (videos) in
-            completion(videos)
-            
-        }
+        fetchFeedForUrlString(urlString: "\(baseUrl)/trending.json", completion: completion)
         
     }
     
     func fetchSubscriptionFeed(completion: @escaping ([Video]) ->()) {
-        fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json") { (videos) in
-            completion(videos)
-            
-        }
+        fetchFeedForUrlString(urlString: "\(baseUrl)/subscriptions.json", completion: completion)
         
     }
     
