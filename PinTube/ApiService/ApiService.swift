@@ -18,6 +18,8 @@ class ApiService: NSObject {
         fetchFeedForUrlString(urlString: "\(baseUrl)/home.json") { (videos) in
             completion(videos)
         }
+        
+        fetchFeedForUrlString(urlString: "\(baseUrl)/home.json", completion: completion)
     }
     
     func fetchTrendingFeed(completion: @escaping ([Video]) ->()) {
