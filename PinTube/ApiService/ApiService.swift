@@ -51,10 +51,13 @@ class ApiService: NSObject {
                 for dictionary in json as! [[String: AnyObject]] {
                     
                     let video = Video()
-                    video.title = dictionary["title"] as? String
-                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
                     
-                    video.numberOfViews = dictionary["number_of_views"] as? NSNumber
+                    
+                    
+//                    video.title = dictionary["title"] as? String
+//                    video.thumbnailImageName = dictionary["thumbnail_image_name"] as? String
+//
+//                    video.numberOfViews = dictionary["number_of_views"] as? NSNumber
                     
                     let channelDictionary = dictionary["channel"] as! [String: AnyObject]
                     
@@ -79,9 +82,9 @@ class ApiService: NSObject {
             }
             
             }.resume()
-        }
-    
     }
+    
+}
 
 //let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
 //

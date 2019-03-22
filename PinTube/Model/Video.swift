@@ -14,6 +14,7 @@ class Video: NSObject {
     var title: String?
     var numberOfViews: NSNumber?
     var uploadDate: NSDate?
+    var duration: NSNumber?
     
     
     var channel: Channel?
