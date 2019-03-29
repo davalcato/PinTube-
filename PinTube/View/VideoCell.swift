@@ -42,20 +42,18 @@ class VideoCell: BaseCell {
                 
                 let subtitleText = "\(String(describing: channelName)) • \(String(describing: numberFormatter.string(from: numberOfViews)!)) • 2 years ago "
                 subtitleTextView.text = subtitleText
-                
             }
-            
             // measure title text
             if let title = video?.title {
                 let size = CGSize(width: -16 - 44 - 8 - 16, height: 1000)
                 let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
                 let estimatedRect = NSString(string: title).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)], context: nil)
-                
+               
+                //measure title text
                 if estimatedRect.size.height > 20 {
                     titleLabelHeightConstraint?.constant = 44
                 } else {
                     titleLabelHeightConstraint?.constant = 20
-                    
                 }
                 
             }
