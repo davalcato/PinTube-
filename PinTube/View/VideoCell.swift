@@ -30,7 +30,6 @@ class VideoCell: BaseCell {
         didSet {
             titleLabel.text = video?.title
             
-            
             setupThumbnailImage()
             
             setupProfileImage()
