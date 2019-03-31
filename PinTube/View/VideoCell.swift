@@ -71,9 +71,7 @@ class VideoCell: BaseCell {
     func setupThumbnailImage() {
         if let thumbnailImageUrl = video?.thumbnail_image_name {
             thumbnailImageView.loadImageUsingUrlString(urlString: thumbnailImageUrl)
-            
         }
-        
     }
     
     let thumbnailImageView: CustomImageView = {
