@@ -44,18 +44,20 @@ class ApiService: NSObject {
             
             do {
                 if let unwrappedData = data {
-                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers)
-                    
-                    var videos = [Video]()
-                    
-                    for dictionary in json as! [[String: AnyObject]] {
-                        let video = Video(dictionary: dictionary)
-                        videos.append(video)
+                    if let jsonDictionaries = try JSONSerialization.jsonObject(with: unwrappedData, options: .mutableContainers) as? [[String: AnyObject]] {
                         
-                    }
-                    
-                    DispatchQueue.main.async {
-                        completion(videos)
+                        var videos = [Video]()
+                        
+                        for dictionary in jsonDictionaries {
+                            let video = Video(dictionary: dictionary)
+                            videos.append(video)
+                            
+                        }
+                        
+                        DispatchQueue.main.async {
+                            completion(videos)
+                            
+                        }
                         
                     }
                     
