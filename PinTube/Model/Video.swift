@@ -8,7 +8,27 @@
 
 import UIKit
 
-class Video: NSObject {
+class SafeJsonObjects: NSObject {
+    
+    override func setValue(_ value: Any?, forKey key: String) {
+        let upperCaseFirstCharacter = String(key.characters.first!).uppercased()
+        let range = key.startIndex..<key.index(key.startIndex, offsetBy: 1)
+        let selectorString = key.replacingCharacters(in: range, with: upperCaseFirstCharacter)
+        
+        let selector = NSSelectorFromString("set\(selectorString):")
+        let responds = self.responds(to: selector)
+        
+        if !responds {
+            return
+        }
+        
+        super.setValue(value, forKey: key)
+    }
+    
+}
+
+
+class Video: SafeJsonObjects {
     
     var thumbnail_image_name: String?
     var title: String?
@@ -16,9 +36,6 @@ class Video: NSObject {
     var duration: NSNumber?
    
 //    var uploadDate: NSDate?
-    
-    
-    
     var channel: Channel?
     
     override func setValue(_ value: Any?, forKey key: String) {
@@ -39,7 +56,7 @@ class Video: NSObject {
     }
 }
 
-class Channel: NSObject {
+class Channel: SafeJsonObjects {
     var name: String?
     var profile_image_name: String?
 }
