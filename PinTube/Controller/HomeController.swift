@@ -20,7 +20,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         navigationController?.navigationBar.isTranslucent = false
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: -332, height: 21))
@@ -88,7 +88,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     @objc func handleSearch() {
-       scrollToMenuIndex(menuIndex: 2)
+        scrollToMenuIndex(menuIndex: 2)
     }
     
     func scrollToMenuIndex(menuIndex: Int) {
@@ -137,18 +137,18 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         menuBar.horizontalBarLeftAnchorConstraint?.constant = scrollView.contentOffset.x / 4
     }
-  
+    
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let index = targetContentOffset.pointee.x / view.frame.width
         
         let indexPath = NSIndexPath(item: Int(index), section: 0)
-      
+        
         menuBar.collectionView.selectItem(at: indexPath as IndexPath, animated: true, scrollPosition: [])
         
-//        if let titleLable = navigationItem.titleView as? UILabel {
-//            titleLable.text = " \(titles[Int(index)]) "
-//        }
+        //        if let titleLable = navigationItem.titleView as? UILabel {
+        //            titleLable.text = " \(titles[Int(index)]) "
+        //        }
         
         setTitleForIndex(index: Int(index))
         
