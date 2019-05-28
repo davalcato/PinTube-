@@ -156,7 +156,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -168,8 +168,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             identifier = subscriptionCellId
         } else {
             identifier = cellId
-            
-            
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
