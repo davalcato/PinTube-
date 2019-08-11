@@ -49,6 +49,9 @@ class VideoLauncher: NSObject {
                 
             }) { (completedAnimation) in
                 //The view is expected to rise from the lower right corner later....
+                
+                UIApplication.shared.setStatusBarHidden(true, with: .fade)
+            
             }
         }
     }
