@@ -38,9 +38,11 @@ class VideoPlayerView: UIView {
     
     
     @objc func handlePause() {
-        print("pausing player")
+//        print("pausing player")
         player?.pause()
         
+        
+        pauseButton.setImage(UIImage(named: "play"), for: .normal)
         
     }
     
