@@ -11,6 +11,14 @@ import AVFoundation
 
 class VideoPlayerView: UIView {
     
+    let activityIndicatorView: UIActivityIndicatorView = {
+        let aiv = UIActivityIndicatorView(style: .whiteLarge)
+        aiv.translatesAutoresizingMaskIntoConstraints = false
+        aiv.startAnimating()
+        return aiv
+        
+    }()
+    
     let controlsContainerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0, alpha: 0.5)
@@ -25,6 +33,10 @@ class VideoPlayerView: UIView {
         
         controlsContainerView.frame = frame
         addSubview(controlsContainerView)
+        
+        controlsContainerView.addSubview(activityIndicatorView)
+        activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         backgroundColor = .black
         
