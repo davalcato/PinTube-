@@ -19,7 +19,7 @@ class VideoPlayerView: UIView {
         
     }()
     
-    lazy var pauseButton: UIButton = {
+    lazy var pausePlayButton: UIButton = {
         let button = UIButton(type: .system)
         let image =  UIImage(named: "pause")
         button.setImage(image, for: .normal)
@@ -37,12 +37,19 @@ class VideoPlayerView: UIView {
     }()
     
     
+    var isPlaying = false
+    
+    
     @objc func handlePause() {
-//        print("pausing player")
-        player?.pause()
-        
-        
-        pauseButton.setImage(UIImage(named: "play"), for: .normal)
+        if isPlaying {
+            player?.pause()
+            pausePlayButton.setImage(UIImage(named: "play"), for: .normal)
+        } else {
+            player?.play()
+            pausePlayButton.setImage(UIImage(named: "pause"), for: .normal)
+        }
+
+        isPlaying = !isPlaying
         
     }
     
@@ -65,11 +72,11 @@ class VideoPlayerView: UIView {
         activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        controlsContainerView.addSubview(pauseButton)
-        pauseButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        pauseButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        pauseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        pauseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        controlsContainerView.addSubview(pausePlayButton)
+        pausePlayButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        pausePlayButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        pausePlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         
         backgroundColor = .black
@@ -104,7 +111,7 @@ class VideoPlayerView: UIView {
         if keyPath == "currentItem.loadedTimeRanges" {
             activityIndicatorView.stopAnimating()
             controlsContainerView.backgroundColor = .clear
-            pauseButton.isHidden = false
+            pausePlayButton.isHidden = false
             
             
         }
