@@ -19,15 +19,30 @@ class VideoPlayerView: UIView {
         
     }()
     
-    let pauseButton: UIButton = {
+    lazy var pauseButton: UIButton = {
         let button = UIButton(type: .system)
         let image =  UIImage(named: "pause")
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.tintColor = .white
+        button.isHidden = true
+        
+        
+        button.addTarget(self, action: #selector(handlePause), for: .touchUpInside)
+        
+        
+        
         return button
         
     }()
+    
+    
+    @objc func handlePause() {
+        print("pausing player")
+        player?.pause()
+        
+        
+    }
     
     let controlsContainerView: UIView = {
         let view = UIView()
@@ -59,29 +74,36 @@ class VideoPlayerView: UIView {
         
     }
     
+    var player: AVPlayer?
+    
     private func setupPlayerView() {
         //This is a borrowed video link - just a place mark for now.
         let urlString = "https://firebasestorage.googleapis.com/v0/b/gameofchats-762ca.appspot.com/o/message_movies%2F12323439-9729-4941-BA07-2BAE970967C7.mov?alt=media&token=3e37a093-3bc8-410f-84d3-38332af9c726"
         
         if let url = NSURL(string: urlString) {
-            let player = AVPlayer(url: url as URL)
+             player = AVPlayer(url: url as URL)
             
             let playerLayer = AVPlayerLayer(player: player)
             self.layer.addSublayer(playerLayer)
             playerLayer.frame = self.frame
             
             
-            player.play()
+            player?.play()
             
-            player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+            
+            player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
         }
         
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        //Here is where the video is ready to render frames
         if keyPath == "currentItem.loadedTimeRanges" {
             activityIndicatorView.stopAnimating()
             controlsContainerView.backgroundColor = .clear
+            pauseButton.isHidden = false
+            
             
         }
     }
