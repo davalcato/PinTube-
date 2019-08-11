@@ -55,9 +55,17 @@ class VideoPlayerView: UIView {
             
             
             player.play()
+            
+            player.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
         }
         
-        
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "currentItem.loadedTimeRanges" {
+            activityIndicatorView.stopAnimating()
+            
+        }
     }
     
     required init?(coder: NSCoder) {
