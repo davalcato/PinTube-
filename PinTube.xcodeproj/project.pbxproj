@@ -125,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				75239714221D1C650029B004 /* Extensions.swift */,
+				753073BC22FFC9A1003B221E /* VideoLauncher.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -170,7 +171,6 @@
 		75A60E5F2219F0B80041C1B3 = {
 			isa = PBXGroup;
 			children = (
-				753073BC22FFC9A1003B221E /* VideoLauncher.swift */,
 				75A60E6A2219F0BE0041C1B3 /* PinTube */,
 				75A60E7F2219F0C00041C1B3 /* PinTubeTests */,
 				75A60E8A2219F0C00041C1B3 /* PinTubeUITests */,
