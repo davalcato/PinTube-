@@ -19,9 +19,19 @@ class VideoPlayerView: UIView {
         
     }()
     
+    let pauseButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image =  UIImage(named: "pause")
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        return button
+        
+    }()
+    
     let controlsContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        view.backgroundColor = UIColor(white: 0, alpha: 1)
         return view
         
     }()
@@ -37,6 +47,13 @@ class VideoPlayerView: UIView {
         controlsContainerView.addSubview(activityIndicatorView)
         activityIndicatorView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         activityIndicatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        
+        controlsContainerView.addSubview(pauseButton)
+        pauseButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        pauseButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        pauseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        pauseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         
         backgroundColor = .black
         
@@ -64,6 +81,7 @@ class VideoPlayerView: UIView {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "currentItem.loadedTimeRanges" {
             activityIndicatorView.stopAnimating()
+            controlsContainerView.backgroundColor = .clear
             
         }
     }
