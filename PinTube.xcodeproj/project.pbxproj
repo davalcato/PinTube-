@@ -18,6 +18,7 @@
 		75239726223224260029B004 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75239725223224250029B004 /* SettingCell.swift */; };
 		7523972B223CB1F50029B004 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523972A223CB1F50029B004 /* ApiService.swift */; };
 		7523972D223F10F30029B004 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523972C223F10F30029B004 /* FeedCell.swift */; };
+		753073BD22FFC9A1003B221E /* VideoLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753073BC22FFC9A1003B221E /* VideoLauncher.swift */; };
 		756EC30222407D5D00072FB2 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EC30122407D5D00072FB2 /* TrendingCell.swift */; };
 		756EC304224085B100072FB2 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EC303224085B100072FB2 /* SubscriptionCell.swift */; };
 		75A60E6C2219F0BE0041C1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		75239725223224250029B004 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		7523972A223CB1F50029B004 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		7523972C223F10F30029B004 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		753073BC22FFC9A1003B221E /* VideoLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLauncher.swift; sourceTree = "<group>"; };
 		756EC30122407D5D00072FB2 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		756EC303224085B100072FB2 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		75A60E682219F0BE0041C1B3 /* PinTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +170,7 @@
 		75A60E5F2219F0B80041C1B3 = {
 			isa = PBXGroup;
 			children = (
+				753073BC22FFC9A1003B221E /* VideoLauncher.swift */,
 				75A60E6A2219F0BE0041C1B3 /* PinTube */,
 				75A60E7F2219F0C00041C1B3 /* PinTubeTests */,
 				75A60E8A2219F0C00041C1B3 /* PinTubeUITests */,
@@ -486,6 +489,7 @@
 				75239726223224260029B004 /* SettingCell.swift in Sources */,
 				75239715221D1C650029B004 /* Extensions.swift in Sources */,
 				75239723222F6FB50029B004 /* SettingsLauncher.swift in Sources */,
+				753073BD22FFC9A1003B221E /* VideoLauncher.swift in Sources */,
 				7523972B223CB1F50029B004 /* ApiService.swift in Sources */,
 				7523971B221D1E620029B004 /* HomeController.swift in Sources */,
 				75A60E6C2219F0BE0041C1B3 /* AppDelegate.swift in Sources */,
