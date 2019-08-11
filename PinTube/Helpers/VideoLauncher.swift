@@ -60,6 +60,16 @@ class VideoPlayerView: UIView {
         
     }()
     
+    let videoLengthlabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "00:00"
+        label.textColor = .white
+        return label
+        
+    }()
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -77,6 +87,13 @@ class VideoPlayerView: UIView {
         pausePlayButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         pausePlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        controlsContainerView.addSubview(videoLengthlabel)
+        videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        videoLengthlabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoLengthlabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        videoLengthlabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         
         backgroundColor = .black
@@ -112,7 +129,7 @@ class VideoPlayerView: UIView {
             activityIndicatorView.stopAnimating()
             controlsContainerView.backgroundColor = .clear
             pausePlayButton.isHidden = false
-            
+            isPlaying = true
             
         }
     }
