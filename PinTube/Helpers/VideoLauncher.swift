@@ -23,7 +23,14 @@ class VideoLauncher: NSObject {
             
             keyWindow.addSubview(view)
             
-            UIView.animate(withDuration: <#T##TimeInterval#>, delay: <#T##TimeInterval#>, usingSpringWithDamping: <#T##CGFloat#>, initialSpringVelocity: <#T##CGFloat#>, options: <#T##UIView.AnimationOptions#>, animations: <#T##() -> Void#>, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                
+                view.frame = keyWindow.frame
+                
+                
+            }) { (completedAnimation) in
+                //The view is expected to rise from the lower right corner later....
+            }
         }
     }
 }
