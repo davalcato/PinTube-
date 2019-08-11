@@ -71,6 +71,14 @@ class VideoPlayerView: UIView {
         
     }()
     
+    let videoSlider: UISlider = {
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        return slider
+        
+        
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,10 +100,18 @@ class VideoPlayerView: UIView {
         
         
         controlsContainerView.addSubview(videoLengthlabel)
-        videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         videoLengthlabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         videoLengthlabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         videoLengthlabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        
+        controlsContainerView.addSubview(videoSlider)
+        videoSlider.rightAnchor.constraint(equalTo: videoLengthlabel.leftAnchor).isActive = true
+        videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoSlider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
         
         
         backgroundColor = .black
