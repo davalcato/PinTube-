@@ -11,6 +11,12 @@ import AVFoundation
 
 class VideoPlayerView: UIView {
     
+    let controlsContainerView: UIView = {
+        
+        
+        
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
