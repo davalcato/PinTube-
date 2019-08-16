@@ -74,6 +74,10 @@ class VideoPlayerView: UIView {
     let videoSlider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumTrackTintColor = .red
+        
+        slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
+        
         return slider
         
         
