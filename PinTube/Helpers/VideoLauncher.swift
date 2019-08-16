@@ -83,6 +83,28 @@ class VideoPlayerView: UIView {
         
     }()
     
+    @objc func handleSliderChange() {
+        print(videoSlider.value)
+        
+        if let duration = player?.currentItem?.duration {
+            
+            let totalSeconds = CMTimeGetSeconds(duration)
+            
+            let value = Float64(videoSlider.value) * totalSeconds
+            
+            //Seeks the value here in seconds
+            let seekTime = CMTime(value: Int64(value), timescale: 1)
+            
+            //This is how you skip to a different section of the video
+            player?.seek(to: seekTime, completionHandler: { (completedSeek) in
+                //Expect to do something here
+                
+            })
+            
+        }
+        
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
