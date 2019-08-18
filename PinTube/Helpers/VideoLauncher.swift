@@ -139,14 +139,14 @@ class VideoPlayerView: UIView {
         
         controlsContainerView.addSubview(videoLengthlabel)
         videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
-        videoLengthlabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoLengthlabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
         videoLengthlabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         videoLengthlabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         
         controlsContainerView.addSubview(currentTimeLabel)
-        currentTimeLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        currentTimeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
         currentTimeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
         currentTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
