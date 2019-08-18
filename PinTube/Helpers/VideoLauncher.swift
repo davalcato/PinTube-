@@ -188,11 +188,14 @@ class VideoPlayerView: UIView {
             player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
                 
                 let seconds = CMTimeGetSeconds(progressTime)
-                print(seconds)
+                let secondsString = Int(seconds.truncatingRemainder(dividingBy: 60))
+                let minutesString = String(format: "%02d", Int(seconds) / 60)
+                
+                
+                self.currentTimeLabel.text = "\(minutesString):\(secondsString)"
+                
             })
-            
         }
-        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
