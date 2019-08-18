@@ -123,6 +123,8 @@ class VideoPlayerView: UIView {
         
         setupPlayerView()
         
+        setupGradientLayer()
+        
         controlsContainerView.frame = frame
         addSubview(controlsContainerView)
         
@@ -206,6 +208,18 @@ class VideoPlayerView: UIView {
             }
         }
     }
+    
+    private func setupGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        
+        controlsContainerView.layer.addSublayer(gradientLayer)
+        
+        
+        
+    }
+    
+    
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
