@@ -182,6 +182,15 @@ class VideoPlayerView: UIView {
             
             
             player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+            
+            //Tracking the duration of the video with a player progress monitor
+            let interval = CMTime(value: 1, timescale: 2)
+            player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progressTime) in
+                
+                let seconds = CMTimeGetSeconds(progressTime)
+                print(seconds)
+            })
+            
         }
         
     }
@@ -212,22 +221,12 @@ class VideoPlayerView: UIView {
     private func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor ]
         //TO modified the gradientLayer locations
         gradientLayer.locations = [0.7, 1.2]
-        
-        
-        
-        
         controlsContainerView.layer.addSublayer(gradientLayer)
         
-        
-        
     }
-    
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
