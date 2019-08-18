@@ -65,9 +65,22 @@ class VideoPlayerView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "00:00"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textAlignment = .right
+        
         return label
+        
+    }()
+    
+    let currentTimeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "00:00"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        
+        return label
+        
         
     }()
     
@@ -75,6 +88,7 @@ class VideoPlayerView: UIView {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
         slider.minimumTrackTintColor = .red
+        slider.setThumbImage(UIImage(named: "dot"), for: .normal)
         
         slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
         
@@ -100,9 +114,7 @@ class VideoPlayerView: UIView {
                 //Expect to do something here
                 
             })
-            
         }
-        
     }
     
     
@@ -132,13 +144,19 @@ class VideoPlayerView: UIView {
         videoLengthlabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         
+        controlsContainerView.addSubview(currentTimeLabel)
+        currentTimeLabel.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        currentTimeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        currentTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        
+        
         controlsContainerView.addSubview(videoSlider)
         videoSlider.rightAnchor.constraint(equalTo: videoLengthlabel.leftAnchor).isActive = true
         videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        videoSlider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        videoSlider.leftAnchor.constraint(equalTo: currentTimeLabel.rightAnchor).isActive = true
         videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        
         
         backgroundColor = .black
         
