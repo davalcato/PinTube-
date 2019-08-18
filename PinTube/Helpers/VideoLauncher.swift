@@ -194,6 +194,14 @@ class VideoPlayerView: UIView {
                 
                 self.currentTimeLabel.text = "\(minutesString):\(secondsString)"
                 
+                //Modifing the slider thumb dot to work along with the currentTimeLabel
+                if let duration = self.player?.currentItem?.duration {
+                    let durationSeconds = CMTimeGetSeconds(duration)
+                    
+                    self.videoSlider.value = Float(seconds / durationSeconds)
+                    
+                }
+                
             })
         }
     }
