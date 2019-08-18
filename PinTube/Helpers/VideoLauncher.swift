@@ -211,6 +211,14 @@ class VideoPlayerView: UIView {
     
     private func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor ]
+        //TO modified the gradientLayer locations
+        gradientLayer.locations = [0.7, 1.2]
+        
+        
+        
         
         controlsContainerView.layer.addSublayer(gradientLayer)
         
