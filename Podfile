@@ -6,6 +6,8 @@ target 'PinTube' do
   use_frameworks!
 
 pod 'SVProgressHUD'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
 
   # Pods for PinTube
 

@@ -27,6 +27,7 @@
 		75A60E762219F0C00041C1B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75A60E742219F0C00041C1B3 /* LaunchScreen.storyboard */; };
 		75A60E812219F0C00041C1B3 /* PinTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E802219F0C00041C1B3 /* PinTubeTests.swift */; };
 		75A60E8C2219F0C00041C1B3 /* PinTubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E8B2219F0C00041C1B3 /* PinTubeUITests.swift */; };
+		75A914B0230A333200EDD44A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A914AF230A333200EDD44A /* GoogleService-Info.plist */; };
 		D6A1A12F7E70534F6F9E16F3 /* Pods_PinTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6944E95573A4B0B232D47C3C /* Pods_PinTube.framework */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,8 @@
 		75A60E872219F0C00041C1B3 /* PinTubeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PinTubeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A60E8B2219F0C00041C1B3 /* PinTubeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinTubeUITests.swift; sourceTree = "<group>"; };
 		75A60E8D2219F0C00041C1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A914AD230A307A00EDD44A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		75A914AF230A333200EDD44A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8DD82C3CF41C105F26890B0B /* Pods-PinTubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinTubeTests.release.xcconfig"; path = "Target Support Files/Pods-PinTubeTests/Pods-PinTubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3D7AF6F11902FBE8B17073C /* Pods_PinTubeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinTubeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EEF671975ED49CBDF0197C /* Pods-PinTubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinTubeTests.debug.xcconfig"; path = "Target Support Files/Pods-PinTubeTests/Pods-PinTubeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		2D804840AC657F553420A58F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75A914AD230A307A00EDD44A /* AdSupport.framework */,
 				6944E95573A4B0B232D47C3C /* Pods_PinTube.framework */,
 				50FA1482A3E3C38AFBDF5FE5 /* Pods_PinTubeTests.framework */,
 				B3D7AF6F11902FBE8B17073C /* Pods_PinTubeUITests.framework */,
@@ -202,6 +206,7 @@
 				75A60E6F2219F0BE0041C1B3 /* Main.storyboard */,
 				75A60E722219F0C00041C1B3 /* Assets.xcassets */,
 				75A60E742219F0C00041C1B3 /* LaunchScreen.storyboard */,
+				75A914AF230A333200EDD44A /* GoogleService-Info.plist */,
 				75A60E772219F0C00041C1B3 /* Info.plist */,
 			);
 			path = PinTube;
@@ -348,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75A60E762219F0C00041C1B3 /* LaunchScreen.storyboard in Resources */,
+				75A914B0230A333200EDD44A /* GoogleService-Info.plist in Resources */,
 				75A60E732219F0C00041C1B3 /* Assets.xcassets in Resources */,
 				75A60E712219F0BE0041C1B3 /* Main.storyboard in Resources */,
 			);
@@ -423,13 +429,19 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinTube/Pods-PinTube-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
