@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -20,6 +21,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let ref = Database.database().reference()
+        
+//        ref.child("someid/name").setValue("Mark")
+        
+        ref.childByAutoId().setValue(["name":"Rick", "role":"admin", "age":23])
 
         navigationController?.navigationBar.isTranslucent = false
         
