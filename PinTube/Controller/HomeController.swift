@@ -24,10 +24,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         let ref = Database.database().reference()
         
-//        ref.child("someid/name").setValue("Mark")
+        ref.child("someid").observeSingleEvent(of: .value) { (snapshot) in
+            let employeedata = snapshot.value as? [String:Any]
+        }
         
-        ref.childByAutoId().setValue(["name":"Rick", "role":"admin", "age":23])
-
+//        ref.childByAutoId().setValue(["name":"Rick", "role":"admin", "age":23])
+        
         navigationController?.navigationBar.isTranslucent = false
         
         let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: -332, height: 21))
@@ -35,7 +37,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         titleLabel.textColor = UIColor.white
         titleLabel.font = UIFont.systemFont(ofSize: 20)
         navigationItem.titleView = titleLabel
-        
         
         setupCollectionView()
         setupMenuBar()

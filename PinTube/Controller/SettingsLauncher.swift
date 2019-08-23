@@ -70,7 +70,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
             
             
             let height: CGFloat = CGFloat(settings.count) * cellHeight
-            let y = window.frame.height - height
+            _ = window.frame.height - height
             collectionView.frame = CGRect(x: 0, y: 400, width: 400, height: 300)
             
             
