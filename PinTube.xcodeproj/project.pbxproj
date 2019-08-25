@@ -154,6 +154,8 @@
 		75239719221D1E0F0029B004 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				75A914B123131AD800EDD44A /* LoginController.swift */,
+				75A914B323131BAC00EDD44A /* SignUpController.swift */,
 				7523971A221D1E620029B004 /* HomeController.swift */,
 				75239722222F6FB50029B004 /* SettingsLauncher.swift */,
 			);
@@ -207,8 +209,6 @@
 				75239719221D1E0F0029B004 /* Controller */,
 				75239713221D1C340029B004 /* Helpers */,
 				75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */,
-				75A914B123131AD800EDD44A /* LoginController.swift */,
-				75A914B323131BAC00EDD44A /* SignUpController.swift */,
 				75A60E6F2219F0BE0041C1B3 /* Main.storyboard */,
 				75A60E722219F0C00041C1B3 /* Assets.xcassets */,
 				75A60E742219F0C00041C1B3 /* LaunchScreen.storyboard */,
