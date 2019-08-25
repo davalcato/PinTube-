@@ -40,6 +40,33 @@ extension UIView {
             
         }
     }
+    
+    func textContainerView(view: UIView, _ image: UIImage, _ textField: UITextField) -> UIView {
+        view.backgroundColor = .clear
+        
+        
+        let imageView = UIImageView()
+        imageView.image = image
+        imageView.alpha = 0.87
+        view.addSubview(imageView)
+        imageView.anchor(top: nil, left: imageView.rightAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 0, width: 24, height: 24)
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        
+        view.addSubview(textField)
+        textField.anchor(top: nil, left: imageView.rightAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
+        textField.centerYAnchor.constraint(equalTo: imageView.centerYAnchor).isActive = true
+        
+        
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(white: 1, alpha: 0.87)
+        view.addSubview(separatorView)
+        separatorView.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0.75)
+        
+        return view
+        
+    }
+    
 }
 
 
