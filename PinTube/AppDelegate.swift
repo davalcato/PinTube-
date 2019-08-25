@@ -16,18 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         FirebaseApp.configure()
         
         
         let layout = UICollectionViewFlowLayout()
 //        layout.scrollDirection = .horizontal
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        window = UIWindow()
         window?.makeKeyAndVisible()
+        let navController = UINavigationController(rootViewController: LoginController())
+        navController.navigationBar.barStyle = .black
+        window?.rootViewController = navController
         
-        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
-//        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 32/255, blue: 31/255, alpha: 1)
+        
+        
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible()
+//
+//        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
+        
+
         
         UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 107, green: 178, blue: 174)
         

@@ -28,6 +28,8 @@
 		75A60E812219F0C00041C1B3 /* PinTubeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E802219F0C00041C1B3 /* PinTubeTests.swift */; };
 		75A60E8C2219F0C00041C1B3 /* PinTubeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E8B2219F0C00041C1B3 /* PinTubeUITests.swift */; };
 		75A914B0230A333200EDD44A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A914AF230A333200EDD44A /* GoogleService-Info.plist */; };
+		75A914B223131AD800EDD44A /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A914B123131AD800EDD44A /* LoginController.swift */; };
+		75A914B423131BAC00EDD44A /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A914B323131BAC00EDD44A /* SignUpController.swift */; };
 		D6A1A12F7E70534F6F9E16F3 /* Pods_PinTube.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6944E95573A4B0B232D47C3C /* Pods_PinTube.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		75A60E8D2219F0C00041C1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75A914AD230A307A00EDD44A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		75A914AF230A333200EDD44A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		75A914B123131AD800EDD44A /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		75A914B323131BAC00EDD44A /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		8DD82C3CF41C105F26890B0B /* Pods-PinTubeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinTubeTests.release.xcconfig"; path = "Target Support Files/Pods-PinTubeTests/Pods-PinTubeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B3D7AF6F11902FBE8B17073C /* Pods_PinTubeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinTubeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3EEF671975ED49CBDF0197C /* Pods-PinTubeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinTubeTests.debug.xcconfig"; path = "Target Support Files/Pods-PinTubeTests/Pods-PinTubeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				75239719221D1E0F0029B004 /* Controller */,
 				75239713221D1C340029B004 /* Helpers */,
 				75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */,
+				75A914B123131AD800EDD44A /* LoginController.swift */,
+				75A914B323131BAC00EDD44A /* SignUpController.swift */,
 				75A60E6F2219F0BE0041C1B3 /* Main.storyboard */,
 				75A60E722219F0C00041C1B3 /* Assets.xcassets */,
 				75A60E742219F0C00041C1B3 /* LaunchScreen.storyboard */,
@@ -499,6 +505,7 @@
 				756EC30222407D5D00072FB2 /* TrendingCell.swift in Sources */,
 				75239720222341090029B004 /* Video.swift in Sources */,
 				75239726223224260029B004 /* SettingCell.swift in Sources */,
+				75A914B423131BAC00EDD44A /* SignUpController.swift in Sources */,
 				75239715221D1C650029B004 /* Extensions.swift in Sources */,
 				75239723222F6FB50029B004 /* SettingsLauncher.swift in Sources */,
 				753073BD22FFC9A1003B221E /* VideoLauncher.swift in Sources */,
@@ -507,6 +514,7 @@
 				75A60E6C2219F0BE0041C1B3 /* AppDelegate.swift in Sources */,
 				756EC304224085B100072FB2 /* SubscriptionCell.swift in Sources */,
 				7523971D221D205E0029B004 /* MenuBar.swift in Sources */,
+				75A914B223131AD800EDD44A /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
