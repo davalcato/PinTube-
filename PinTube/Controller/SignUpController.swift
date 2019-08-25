@@ -62,8 +62,6 @@ class SignUpController: UIViewController {
             button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
             button.layer.cornerRadius = 5
             return button
-    
-    
     }()
         
         let dontHaveAccountButton: UIButton = {
@@ -78,15 +76,14 @@ class SignUpController: UIViewController {
         
         // MARK: Init
         
-        override func viewDidLoad() {
-            super.viewDidLoad
+    override func viewDidLoad() {
+            super.viewDidLoad()
         }
         
         // MARK: Selectors
         
-        @objc func handleLogin() {
+        @objc func handleSignUp() {
             print("Handle sign up..")
-            
         }
         
         @objc func handleShowLogin() {
