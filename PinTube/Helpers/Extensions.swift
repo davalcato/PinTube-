@@ -91,6 +91,11 @@ extension UIColor {
         
     }
     
+    static func mainBlue() -> UIColor {
+        return UIColor.rgb(red: 0, green: 150, blue: 255)
+        
+    }
+    
 }
 extension UIView {
     func addConstraintsWithFormat(format: String, views: UIView...) {
