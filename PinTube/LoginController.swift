@@ -56,14 +56,12 @@ class LoginController: UIViewController {
         let attributedTitle = NSMutableAttributedString(string: "Don't have an account", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        return button
+        
     }()
     
-    
-    
-    
-    
-    
-    
+    // MARK:  - Init
     
     
     
@@ -72,6 +70,21 @@ class LoginController: UIViewController {
         super.viewDidLoad()
      
     }
+    
+    // MARK: Selectors
+    
+    @objc func handleLogin() {
+        print("Handle login..")
+        
+    }
+    
+    @objc func handleShowSignUp() {
+        navigationController?.pushViewController(SignUpController(), animated: true)
+        
+        
+    }
+    
+    
     
 }
 
