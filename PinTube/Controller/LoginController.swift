@@ -20,7 +20,7 @@ class LoginController: UIViewController {
         return iv
     }()
     
-    lazy var emailContainView: UIView = {
+    lazy var emailContainerView: UIView = {
         let view = UIView()
         return view.textContainerView(view: view, #imageLiteral(resourceName: "ic_mail_outline_white_2x"), emailTextField)
     }()
@@ -63,9 +63,6 @@ class LoginController: UIViewController {
     
     // MARK:  - Init
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
@@ -94,11 +91,11 @@ class LoginController: UIViewController {
         logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         
-        view.addSubview(emailContainView)
-        emailContainView.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 24, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 0, height: 50)
+        view.addSubview(emailContainerView)
+        emailContainerView.anchor(top: logoImageView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 24, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 0, height: 50)
         
         view.addSubview(passwordContainerView)
-        passwordContainerView.anchor(top: emailContainView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 16, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 0, height: 50)
+        passwordContainerView.anchor(top: emailContainerView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 16, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 0, height: 50)
         
         
         view.addSubview(loginButton)
