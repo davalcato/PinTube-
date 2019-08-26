@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SignUpController: UIViewController {
     
@@ -66,7 +68,7 @@ class SignUpController: UIViewController {
         
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Already have an account", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account?", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
         
         attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
             button.setAttributedTitle(attributedTitle, for: .normal)
@@ -85,12 +87,48 @@ class SignUpController: UIViewController {
         // MARK: Selectors
         
         @objc func handleSignUp() {
-            print("Handle sign up..")
+            guard let email = emailTextField.text else { return }
+            guard let password = passwordTextField.text else { return }
+            guard let username = usernameTextField.text else { return }
+            
+            createUser(withEmail: email, password: password, username: username)
     }
         
         @objc func handleShowLogin() {
             navigationController?.popViewController(animated: true)
     }
+    
+    //MARK: - API
+    
+    func createUser(withEmail email: String, password: String, username: String) {
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            
+            if let error = error {
+                print("Failed to sign user up with error: ", error.localizedDescription)
+                return
+            }
+            
+            guard let uid = result?.user.uid else { return }
+            
+            
+            let values = ["email": email, "username": username]
+            
+            Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
+                if let error = error {
+                    print("Failed to update database values with error: ", error.localizedDescription)
+                    return
+                }
+                
+                print("Successfully signed user up..")
+            }
+            
+        }
+        
+   }
+    
+    
+    
     
     // MARK: - Helper Functions
     

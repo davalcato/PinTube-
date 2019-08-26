@@ -8,6 +8,7 @@ target 'PinTube' do
 pod 'SVProgressHUD'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
   # Pods for PinTube
 
