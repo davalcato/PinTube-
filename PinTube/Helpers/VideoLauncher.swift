@@ -29,9 +29,6 @@ class VideoPlayerView: UIView {
         
         
         button.addTarget(self, action: #selector(handlePause), for: .touchUpInside)
-        
-        
-        
         return button
         
     }()

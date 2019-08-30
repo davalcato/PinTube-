@@ -40,18 +40,18 @@ class SignUpController: UIViewController {
     
     lazy var emailTextField: UITextField = {
         let tf = UITextField()
-        return tf.textField(withPlacolder: "Email", isSecureTextEntry: false)
+        return tf.textField(withPlaceolder: "Email", isSecureTextEntry: false)
     }()
     
     lazy var usernameTextField: UITextField = {
         let tf = UITextField()
-        return tf.textField(withPlacolder: "Username", isSecureTextEntry: false)
+        return tf.textField(withPlaceolder: "Username", isSecureTextEntry: false)
         
     }()
     
     lazy var passwordTextField: UITextField = {
             let tf = UITextField()
-            return tf.textField(withPlacolder: "Password", isSecureTextEntry: true)
+        return tf.textField(withPlaceolder: "Password", isSecureTextEntry: true)
     
     }()
         
@@ -68,8 +68,7 @@ class SignUpController: UIViewController {
         
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Already have an account?", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
-        
+        let attributedTitle = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
             button.setAttributedTitle(attributedTitle, for: .normal)
             button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)

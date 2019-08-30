@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -32,13 +33,13 @@ class LoginController: UIViewController {
     
     lazy var emailTextField: UITextField = {
         let tf = UITextField()
-        return tf.textField(withPlacolder: "Email", isSecureTextEntry: false)
-//        return tf.textField(withPlacolder: "Email", isSecureTextEntry: false)
+        return tf.textField(withPlaceolder: "Email", isSecureTextEntry: false)
+
     }()
     
     lazy var passwordTextField: UITextField = {
         let tf = UITextField()
-        return tf.textField(withPlacolder: "Password", isSecureTextEntry: true)
+        return tf.textField(withPlaceolder: "Password", isSecureTextEntry: true)
     }()
     
     let loginButton: UIButton = {
@@ -54,7 +55,7 @@ class LoginController: UIViewController {
     
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
-        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account?  ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
         attributedTitle.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
@@ -73,7 +74,10 @@ class LoginController: UIViewController {
     // MARK: Selectors
     
     @objc func handleLogin() {
-        print("Handle login..")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+       
         
     }
     
