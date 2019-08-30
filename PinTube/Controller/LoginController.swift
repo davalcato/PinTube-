@@ -77,13 +77,37 @@ class LoginController: UIViewController {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-       
         
+        logUserIn(withEmail: email, password: password)
     }
     
     @objc func handleShowSignUp() {
         navigationController?.pushViewController(SignUpController(), animated: true)
     }
+    
+    // MARK: - API
+    
+    func logUserIn(withEmail email: String, password: String) {
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            
+            if let error = error {
+                print("Failed to sign user in with error: ", error.localizedDescription)
+                return
+            }
+            
+            print("Successfully logged user in..")
+            
+//            guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+//            guard let controller = navController.viewControllers[0] as? HomeController else { return }
+//            controller.configureViewComponents()
+//
+//            // forgot to add this in video
+//            controller.loadUserData()
+//
+//            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     
     // MARK: - Helper Functions
     

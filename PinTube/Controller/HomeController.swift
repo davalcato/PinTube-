@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -21,14 +22,55 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         let ref = Database.database().reference()
         
         ref.child("someid").observeSingleEvent(of: .value) { (snapshot) in
             let employeedata = snapshot.value as? [String:Any]
+            authenticateUserAndConfigureView()
+            
         }
         
-//        ref.childByAutoId().setValue(["name":"Rick", "role":"admin", "age":23])
+        // MARK: - Selectors
+        
+        func handleSignOut() {
+//            let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .actionSheet)
+//            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
+//                self.signOut()
+//            }))
+//            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//            present(alertController, animated: true, completion: nil)
+        }
+        
+        
+        // MARK: - API
+        
+        func authenticateUserAndConfigureView() {
+            if Auth.auth().currentUser == nil {
+                DispatchQueue.main.async {
+                    let navController = UINavigationController(rootViewController: LoginController())
+                    navController.navigationBar.barStyle = .black
+                    self.present(navController, animated: true, completion: nil)
+                }
+            } else {
+                configureViewComponents()
+//                loadUserData()
+            }
+        }
+        
+        // MARK: Helper Functions
+        
+        func configureViewComponents() {
+            view.backgroundColor = UIColor.mainBlue()
+            
+            navigationItem.title = "Firebase Login"
+            
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_arrow_back_white_24dp"), style: .plain, target: self, action: #selector(handleSignOut))
+            navigationItem.leftBarButtonItem?.tintColor = .white
+       
+            
+        }
+
         
         navigationController?.navigationBar.isTranslucent = false
         
