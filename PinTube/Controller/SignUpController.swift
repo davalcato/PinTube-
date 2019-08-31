@@ -109,8 +109,6 @@ class SignUpController: UIViewController {
             }
             
             guard let uid = result?.user.uid else { return }
-            
-            
             let values = ["email": email, "username": username]
             
             Database.database().reference().child("users").child(uid).updateChildValues(values) { (error, ref) in
@@ -119,15 +117,15 @@ class SignUpController: UIViewController {
                     return
                 }
                 
-                print("Successfully signed user up..")
+                guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+                guard navController.viewControllers[0] is HomeController else { return }
+                self.configureViewComponents()
+                self.dismiss(animated: true, completion: nil)
             }
             
         }
         
    }
-    
-    
-    
     
     // MARK: - Helper Functions
     
