@@ -63,18 +63,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 //                })
             }
         }
-//
-        func signOut() {
-            do {
-                try Auth.auth().signOut()
-                let navController = UINavigationController(rootViewController: LoginController())
-                navController.navigationBar.barStyle = .black
-                self.present(navController, animated: true, completion: nil)
-            } catch let error {
-                print("Failed to sign out with error..", error)
-            }
-        }
-
 
         func authenticateUserAndConfigureView() {
             if Auth.auth().currentUser == nil {
@@ -120,16 +108,26 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
     }
     
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            let navController = UINavigationController(rootViewController: LoginController())
+            navController.navigationBar.barStyle = .black
+            self.present(navController, animated: true, completion: nil)
+        } catch let error {
+            print("Failed to sign out with error..", error)
+        }
+    }
+    
      // MARK: - Selectors
     
     @objc func handleSignOut() {
-//        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .actionSheet)
-//        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
-//            self.signOut()
-//        }))
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        present(alertController, animated: true, completion: nil)
-        
+        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
+            self.signOut()
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
         
     }
     
