@@ -144,7 +144,7 @@ class LoginController: UIViewController {
             print("Successfully logged in..")
             
             guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
-            guard let controller = navController.viewControllers[0] as? HomeController else { return }
+            guard navController.viewControllers[0] is HomeController else { return }
 //            controller.configureViewComponents()
             
 //             forgot to add this in video

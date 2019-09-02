@@ -48,16 +48,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             
         }
         
-        // MARK: - Selectors
-
-//        func handleSignOut() {
-//            let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .actionSheet)
-//            alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
-//                signOut()
-//            }))
-//            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//            present(alertController, animated: true, completion: nil)
-//        }
+       
 
         // MARK: - API
 
@@ -105,7 +96,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 
             navigationItem.title = "Firebase Login"
 
-//            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_arrow_back_white_24dp"), style: .plain, target: self, action: #selector(handleSignOut))
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_arrow_back_white_24dp"), style: .plain, target: self, action: #selector(handleSignOut))
+            
             navigationItem.leftBarButtonItem?.tintColor = .white
             navigationController?.navigationBar.barTintColor = UIColor.mainBlue()
 
@@ -125,6 +117,19 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         setupCollectionView()
         setupMenuBar()
         setupNavBarButtons()
+        
+    }
+    
+     // MARK: - Selectors
+    
+    @objc func handleSignOut() {
+//        let alertController = UIAlertController(title: nil, message: "Are you sure you want to sign out?", preferredStyle: .actionSheet)
+//        alertController.addAction(UIAlertAction(title: "Sign Out", style: .destructive, handler: { (_) in
+//            self.signOut()
+//        }))
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        present(alertController, animated: true, completion: nil)
+        
         
     }
     
