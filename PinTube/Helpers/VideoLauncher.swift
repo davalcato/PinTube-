@@ -270,6 +270,31 @@ class VideoLauncher: NSObject {
                 //The view is expected to rise from the lower right corner later....
                 
                 UIApplication.shared.setStatusBarHidden(true, with: .fade)
+                
+                //code below fixes warning above
+                
+//                class ViewController: UIViewController {
+//
+//                    @IBAction func clicked(sender: AnyObject) {
+//                        statusBarHidden = !statusBarHidden
+//                    }
+//
+//                    var statusBarHidden = false {
+//                        didSet {
+//                            UIView.animate(withDuration: 0.5) { () -> Void in
+//                                self.setNeedsStatusBarAppearanceUpdate()
+//                            }
+//                        }
+//                    }
+//
+//                    override var prefersStatusBarHidden: Bool {
+//                        return statusBarHidden
+//                    }
+//
+//                    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+//                        return .slide
+//                    }
+//                }
             
             }
         }

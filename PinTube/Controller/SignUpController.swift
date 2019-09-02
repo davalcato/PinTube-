@@ -46,7 +46,6 @@ class SignUpController: UIViewController {
     lazy var usernameTextField: UITextField = {
         let tf = UITextField()
         return tf.textField(withPlaceolder: "Username", isSecureTextEntry: false)
-        
     }()
     
     lazy var passwordTextField: UITextField = {
@@ -54,7 +53,7 @@ class SignUpController: UIViewController {
         return tf.textField(withPlaceolder: "Password", isSecureTextEntry: true)
     
     }()
-        
+    
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("SIGN UP", for: .normal)
@@ -65,7 +64,7 @@ class SignUpController: UIViewController {
         button.layer.cornerRadius = 5
         return button
     }()
-        
+    
     let dontHaveAccountButton: UIButton = {
         let button = UIButton(type: .system)
         let attributedTitle = NSMutableAttributedString(string: "Already have an account? ", attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor: UIColor.white])
@@ -73,18 +72,18 @@ class SignUpController: UIViewController {
             button.setAttributedTitle(attributedTitle, for: .normal)
             button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
             return button
-            
+        
     }()
-        
+    
         // MARK: Init
-        
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             configureViewComponents()
     }
-        
+    
         // MARK: Selectors
-        
+    
         @objc func handleSignUp() {
             guard let email = emailTextField.text else { return }
             guard let password = passwordTextField.text else { return }
@@ -92,7 +91,7 @@ class SignUpController: UIViewController {
             
             createUser(withEmail: email, password: password, username: username)
     }
-        
+    
         @objc func handleShowLogin() {
             navigationController?.popViewController(animated: true)
     }
@@ -116,6 +115,8 @@ class SignUpController: UIViewController {
                     print("Failed to update database values with error: ", error.localizedDescription)
                     return
                 }
+                
+                print("Successfully signed user up..")
                 
                 guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
                 guard navController.viewControllers[0] is HomeController else { return }

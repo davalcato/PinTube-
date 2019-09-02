@@ -24,19 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        layout.scrollDirection = .horizontal
         
         
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-        let navController = UINavigationController(rootViewController: HomeController())
-        navController.navigationBar.barStyle = .black
-        window?.rootViewController = navController
-        
-        
-        
-        
-//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window = UIWindow()
 //        window?.makeKeyAndVisible()
-//
-//        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
+//        let navController = UINavigationController(rootViewController: LoginController())
+//        navController.navigationBar.barStyle = .black
+//        window?.rootViewController = navController
+        
+        
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+
+        window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
 
         
