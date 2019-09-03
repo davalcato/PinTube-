@@ -12,6 +12,7 @@ import Firebase
 
 class LoginController: UIViewController {
     
+    
     // MARK: - Properties
     
     let logoImageView: UIImageView = {
@@ -105,6 +106,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewComponents()
+        self.hideKeyboardWhenTappedAround() 
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -183,6 +185,23 @@ class LoginController: UIViewController {
         dontHaveAccountButton.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 32, paddingBottom: 12, paddingRight: 32, width: 0, height: 50)
     }
 }
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
+
+
+
 
 
 
