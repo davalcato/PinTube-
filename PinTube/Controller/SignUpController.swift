@@ -80,6 +80,8 @@ class SignUpController: UIViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
             configureViewComponents()
+            hideKeyboardWhenTappedAround()
+            observeKeyboardNotification()
     }
     
         // MARK: Selectors
@@ -95,6 +97,33 @@ class SignUpController: UIViewController {
         @objc func handleShowLogin() {
             navigationController?.popViewController(animated: true)
     }
+    
+    fileprivate func observeKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide),name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardShow() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: -150, width: self.view.frame.width, height: self.view.frame.height)
+            
+            
+        }, completion: nil)
+        
+    }
+    
+    @objc func keyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
+        
+    }
+    
+    
     
     //MARK: - API
     

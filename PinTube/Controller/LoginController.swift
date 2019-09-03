@@ -10,10 +10,12 @@ import UIKit
 import Firebase
 //import GoogleSignIn
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, UITextFieldDelegate {
     
     
     // MARK: - Properties
+    
+    var TextField : UITextField!
     
     let logoImageView: UIImageView = {
         let iv = UIImageView()
@@ -103,10 +105,14 @@ class LoginController: UIViewController {
     
     // MARK: - Init
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureViewComponents()
-        self.hideKeyboardWhenTappedAround() 
+        hideKeyboardWhenTappedAround()
+        observeKeyboardNotification()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,6 +120,14 @@ class LoginController: UIViewController {
         
 //        GIDSignIn.sharedInstance()?.uiDelegate = self
 //        GIDSignIn.sharedInstance()?.delegate = self
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("return is pressed")
+        
+        TextField!.resignFirstResponder()
+        return true
     }
     
     // MARK: - Selectors
@@ -131,6 +145,31 @@ class LoginController: UIViewController {
     
     @objc func handleShowSignUp() {
         navigationController?.pushViewController(SignUpController(), animated: true)
+    }
+    
+    fileprivate func observeKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide),name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardShow() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: -75, width: self.view.frame.width, height: self.view.frame.height)
+            
+            
+        }, completion: nil)
+       
+    }
+    
+    @objc func keyboardHide() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+            
+        }, completion: nil)
+        
     }
     
     // MARK: - API
@@ -197,6 +236,7 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
+
 
 
 
