@@ -19,6 +19,25 @@ class VideoPlayerView: UIView {
         
     }()
     
+    lazy var videoDismissButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image =  UIImage(named: "hide")
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.tintColor = .white
+        button.isHidden = true
+        
+        button.addTarget(self, action: #selector(handleVideo), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    @objc func handleVideo() {
+        print("video dismissed..")
+    
+    
+    }
+    
     lazy var pausePlayButton: UIButton = {
         let button = UIButton(type: .system)
         let image =  UIImage(named: "pause")
@@ -44,7 +63,8 @@ class VideoPlayerView: UIView {
         } else {
             player?.play()
             pausePlayButton.setImage(UIImage(named: "pause"), for: .normal)
-        }
+        
+         }
 
         isPlaying = !isPlaying
         
@@ -135,6 +155,12 @@ class VideoPlayerView: UIView {
         pausePlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        controlsContainerView.addSubview(videoDismissButton)
+        videoDismissButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        videoDismissButton.topAnchor.constraint(equalTo: topAnchor, constant: 1).isActive = true
+        videoDismissButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        videoDismissButton.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        
         
         controlsContainerView.addSubview(videoLengthlabel)
         videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
@@ -210,6 +236,7 @@ class VideoPlayerView: UIView {
             activityIndicatorView.stopAnimating()
             controlsContainerView.backgroundColor = .clear
             pausePlayButton.isHidden = false
+            videoDismissButton.isHidden = false
             isPlaying = true
             
             
