@@ -11,12 +11,9 @@ import Firebase
 //import GoogleSignIn
 
 class LoginController: UIViewController, UITextFieldDelegate {
-    
-    
+ 
     // MARK: - Properties
-    
-    var TextField : UITextField!
-    
+
     let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -44,6 +41,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         let tf = UITextField()
         return tf.textField(withPlaceolder: "Password", isSecureTextEntry: true)
     }()
+    
     
     let loginButton: UIButton = {
         let button = UIButton(type: .system)
@@ -109,10 +107,19 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         configureViewComponents()
         hideKeyboardWhenTappedAround()
         observeKeyboardNotification()
+    
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("hi you..")
         
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -120,14 +127,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         
 //        GIDSignIn.sharedInstance()?.uiDelegate = self
 //        GIDSignIn.sharedInstance()?.delegate = self
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return is pressed")
-        
-        TextField!.resignFirstResponder()
-        return true
     }
     
     // MARK: - Selectors
