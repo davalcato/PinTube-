@@ -33,9 +33,7 @@ class VideoPlayerView: UIView {
         
     }()
     
-    
     var isPlaying = false
-    
     
     @objc func handlePause() {
         if isPlaying {
@@ -77,7 +75,6 @@ class VideoPlayerView: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 14)
         
         return label
-        
         
     }()
     
