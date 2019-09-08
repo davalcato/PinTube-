@@ -7,10 +7,10 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            uuid = "E61EAFDF-285F-4FFD-9EBE-833BA69F84CC"
-            shouldBeEnabled = "No"
+            uuid = "A76C03D5-AE62-420E-AC34-38E9C0E73CD2"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
-            condition = "Now"
+            condition = "NotificationCenter"
             continueAfterRunningActions = "No"
             scope = "1"
             stopOnStyle = "0">

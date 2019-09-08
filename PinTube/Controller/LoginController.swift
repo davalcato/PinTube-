@@ -15,8 +15,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     
-    var TextField : UITextField!
-    
     let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
@@ -109,6 +107,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         configureViewComponents()
         hideKeyboardWhenTappedAround()
         observeKeyboardNotification()
@@ -122,11 +123,14 @@ class LoginController: UIViewController, UITextFieldDelegate {
 //        GIDSignIn.sharedInstance()?.delegate = self
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("return is pressed")
+        let nextTag = textField.tag + 1
         
-        TextField!.resignFirstResponder()
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
         return true
     }
     

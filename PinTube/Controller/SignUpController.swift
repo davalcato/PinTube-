@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController, UITextFieldDelegate {
     
     // MARK: Properties
     
@@ -79,11 +79,26 @@ class SignUpController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            emailTextField.delegate = self
+            usernameTextField.delegate = self
+            passwordTextField.delegate = self
+            
             configureViewComponents()
             hideKeyboardWhenTappedAround()
             observeKeyboardNotification()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag = textField.tag + 1
+        
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
         // MARK: Selectors
     
         @objc func handleSignUp() {
