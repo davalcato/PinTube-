@@ -33,9 +33,8 @@ class VideoPlayerView: UIView {
     }()
     
     @objc func handleVideo() {
+      
         print("video dismissed..")
-    
-    
     }
     
     lazy var pausePlayButton: UIButton = {
@@ -156,10 +155,10 @@ class VideoPlayerView: UIView {
         pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         controlsContainerView.addSubview(videoDismissButton)
-        videoDismissButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        videoDismissButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 4).isActive = true
         videoDismissButton.topAnchor.constraint(equalTo: topAnchor, constant: 1).isActive = true
-        videoDismissButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        videoDismissButton.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        videoDismissButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        videoDismissButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         
         controlsContainerView.addSubview(videoLengthlabel)
