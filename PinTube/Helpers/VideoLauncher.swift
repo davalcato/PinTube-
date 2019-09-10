@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVKit
 import AVFoundation
 
-class VideoPlayerView: UIView {
+class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
+    
     
     let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .whiteLarge)
@@ -32,8 +34,9 @@ class VideoPlayerView: UIView {
         return button
     }()
     
+    // Handle the tap
     @objc func handleVideo() {
-      
+   
         print("video dismissed..")
     }
     
@@ -132,7 +135,6 @@ class VideoPlayerView: UIView {
             })
         }
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -326,3 +328,5 @@ class VideoLauncher: NSObject {
         }
     }
 }
+
+

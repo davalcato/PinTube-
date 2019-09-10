@@ -45,11 +45,8 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let employeedata = snapshot.value as? [String:Any]
             
             authenticateUserAndConfigureView()
-            
         }
         
-       
-
         // MARK: - API
 
         func loadUserData() {

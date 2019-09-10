@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class BaseCell: UICollectionViewCell {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -164,10 +167,10 @@ class VideoCell: BaseCell {
         addConstraint(NSLayoutConstraint(item: subtitleTextView, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
         
         addConstraintsWithFormat(format: "V:[v0(20)]", views: titleLabel)
-        
-        
     }
     
 }
+
+
 
 
