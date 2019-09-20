@@ -250,19 +250,6 @@ extension UIViewController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 //extension LoginController: GIDSignInDelegate {
 //    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 //

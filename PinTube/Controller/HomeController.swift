@@ -47,6 +47,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             authenticateUserAndConfigureView()
         }
         
+        
         // MARK: - API
 
         func loadUserData() {
@@ -79,7 +80,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
         func configureViewComponents() {
             view.backgroundColor = UIColor.mainBlue()
 
-            navigationItem.title = "Firebase Login"
+            navigationItem.title = ""
 
             navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "baseline_arrow_back_white_24dp"), style: .plain, target: self, action: #selector(handleSignOut))
             

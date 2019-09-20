@@ -30,18 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        navController.navigationBar.barStyle = .black
 //        window?.rootViewController = navController
         
-        
-        
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
 
         window?.rootViewController = UINavigationController(rootViewController: HomeController(collectionViewLayout: layout))
         
-
-        
         UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 107, green: 178, blue: 174)
-        
         
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)

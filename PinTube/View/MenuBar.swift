@@ -61,6 +61,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
 //        print(indexPath.item)
 //        let x = CGFloat(indexPath.item) * frame.width / 4
 //        

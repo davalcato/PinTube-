@@ -10,8 +10,8 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
-    
+
+class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecognizerDelegate {
     
     let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .whiteLarge)
@@ -21,7 +21,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
         
     }()
     
-    lazy var videoDismissButton: UIButton = {
+    @objc lazy var videoDismissButton: UIButton = {
         let button = UIButton(type: .system)
         let image =  UIImage(named: "hide")
         button.setImage(image, for: .normal)
@@ -31,12 +31,19 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
         
         button.addTarget(self, action: #selector(handleVideo), for: .touchUpInside)
         
+        
         return button
     }()
     
+    
     // Handle the tap
-    @objc func handleVideo() {
-   
+    
+    // @objc func handleVideo(note: NSNotification) {
+    
+    
+    @objc func handleVideo(recognizer : UITapGestureRecognizer) {
+        
+        
         print("video dismissed..")
     }
     
@@ -139,6 +146,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         setupPlayerView()
         
         setupGradientLayer()
@@ -162,22 +170,18 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
         videoDismissButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
         videoDismissButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
-        
         controlsContainerView.addSubview(videoLengthlabel)
         videoLengthlabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         videoLengthlabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
         videoLengthlabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
         videoLengthlabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
-        
         controlsContainerView.addSubview(currentTimeLabel)
         currentTimeLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2).isActive = true
         currentTimeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
         currentTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        
-        
+       
         controlsContainerView.addSubview(videoSlider)
         videoSlider.rightAnchor.constraint(equalTo: videoLengthlabel.leftAnchor).isActive = true
         videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -185,7 +189,6 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
         videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         backgroundColor = .black
-        
     }
     
     var player: AVPlayer?
@@ -198,12 +201,12 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
              player = AVPlayer(url: url as URL)
             
             let playerLayer = AVPlayerLayer(player: player)
+            playerLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
             self.layer.addSublayer(playerLayer)
             playerLayer.frame = self.frame
             
             
             player?.play()
-            
             
             player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
             
@@ -214,7 +217,6 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
                 let seconds = CMTimeGetSeconds(progressTime)
                 let secondsString = Int(seconds.truncatingRemainder(dividingBy: 60))
                 let minutesString = String(format: "%02d", Int(seconds) / 60)
-                
                 
                 self.currentTimeLabel.text = "\(minutesString):\(secondsString)"
                 
@@ -240,7 +242,6 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
             videoDismissButton.isHidden = false
             isPlaying = true
             
-            
             if let duration = player?.currentItem?.duration {
                 let seconds = CMTimeGetSeconds(duration)
                 
@@ -249,7 +250,6 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate {
                
                 videoLengthlabel.text = "\(minutesText):\(secondText)"
         
-                
             }
         }
     }
@@ -295,9 +295,13 @@ class VideoLauncher: NSObject {
                 
                 
             }) { (completedAnimation) in
+                
+                
                 //The view is expected to rise from the lower right corner later....
                 
                 UIApplication.shared.setStatusBarHidden(true, with: .fade)
+                
+                
                 
                 //code below fixes warning above
                 
@@ -328,5 +332,16 @@ class VideoLauncher: NSObject {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 

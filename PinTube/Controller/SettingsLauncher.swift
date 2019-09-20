@@ -97,6 +97,7 @@ class SettingsLauncher: NSObject, UICollectionViewDataSource, UICollectionViewDe
                     self.collectionView.frame.width, height:
                     self.collectionView.frame.height)
             }
+            
         }) { (completed: Bool) in
             
             if setting.name != .Cancel {
