@@ -102,11 +102,20 @@ class LoginController: UIViewController, UITextFieldDelegate {
         return button
     }()
     
+    var context = LAContext()
+    
     // MARK: - Init
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        context.localizedCancelTitle = "End Session"
+        context.localizedFallbackTitle = "Use Passcode (2)"
+        if #available(iOS 11.0, *) {
+            context.localizedReason = "This app needs your authentication."
+        } else {
+            // Fallback on earlier versions
+        }
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -114,8 +123,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
         configureViewComponents()
         hideKeyboardWhenTappedAround()
         observeKeyboardNotification()
+        evaluatePolicy()
         
     }
+    
+    func evaluatePolicy() {
+        var errorCanEval: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &errorCanEval) {
+            
+        }
+        else {
+            
+            print("can't evaluate")
+            print(errorCanEval?.localizedDescription ?? "no error description")
+            
+        }
+        
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
