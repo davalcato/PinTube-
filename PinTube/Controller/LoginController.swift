@@ -157,6 +157,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     switch evalErrCode.code {
                     case LAError.Code.userCancel:
                         print("user cancelled")
+                    case LAError.appCancel:
+                        print("app cancelled")
                     case LAError.Code.userFallback:
                         print("fallback")
                     case LAError.Code.authenticationFailed:
@@ -170,6 +172,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 }
                 
             }
+            Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (t) in
+                self.context.invalidate()
+            }
             
         }
         else {
@@ -177,8 +182,24 @@ class LoginController: UIViewController, UITextFieldDelegate {
             print("can't evaluate")
             print(errorCanEval?.localizedDescription ?? "no error description")
             
+            if let err = errorCanEval {
+                let evalErrCode = LAError(_nsError: err as NSError)
+                switch evalErrCode.code {
+                case LAError.Code.biometryNotEnrolled:
+                    print("not enrolled")
+//                case LAError.Code.userFallback:
+//                    print("fallback")
+//                case LAError.Code.authenticationFailed:
+//                    print("failed")
+                default:
+                    print("other error")
+                    
+                    
+                }
+                
+            }
+            
         }
-        
         
     }
     
