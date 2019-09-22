@@ -113,6 +113,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         context.localizedFallbackTitle = ""
         if #available(iOS 11.0, *) {
             context.localizedReason = "This app needs your authentication."
+            context.touchIDAuthenticationAllowableReuseDuration = LATouchIDAuthenticationMaximumAllowableReuseDuration
         } else {
             // Fallback on earlier versions
         }
