@@ -22,6 +22,7 @@
 		7541D1D0232DC438001EC5DD /* TFSwipeShrinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7541D1CF232DC438001EC5DD /* TFSwipeShrinkView.swift */; };
 		756EC30222407D5D00072FB2 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EC30122407D5D00072FB2 /* TrendingCell.swift */; };
 		756EC304224085B100072FB2 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756EC303224085B100072FB2 /* SubscriptionCell.swift */; };
+		757603A72337101700570F08 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757603A62337101700570F08 /* LocalAuthentication.framework */; };
 		75848925232725760060A7EC /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75848924232725760060A7EC /* FirebaseAuth.framework */; };
 		758489272327257E0060A7EC /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758489262327257E0060A7EC /* FirebaseDatabase.framework */; };
 		75A60E6C2219F0BE0041C1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A60E6B2219F0BE0041C1B3 /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 		7541D1CF232DC438001EC5DD /* TFSwipeShrinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TFSwipeShrinkView.swift; sourceTree = "<group>"; };
 		756EC30122407D5D00072FB2 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		756EC303224085B100072FB2 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		757603A62337101700570F08 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		75848924232725760060A7EC /* FirebaseAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		758489262327257E0060A7EC /* FirebaseDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75A60E682219F0BE0041C1B3 /* PinTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757603A72337101700570F08 /* LocalAuthentication.framework in Frameworks */,
 				758489272327257E0060A7EC /* FirebaseDatabase.framework in Frameworks */,
 				75848925232725760060A7EC /* FirebaseAuth.framework in Frameworks */,
 				D6A1A12F7E70534F6F9E16F3 /* Pods_PinTube.framework in Frameworks */,
@@ -129,6 +132,7 @@
 		2D804840AC657F553420A58F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				757603A62337101700570F08 /* LocalAuthentication.framework */,
 				758489262327257E0060A7EC /* FirebaseDatabase.framework */,
 				75848924232725760060A7EC /* FirebaseAuth.framework */,
 				75A914AD230A307A00EDD44A /* AdSupport.framework */,

@@ -13,6 +13,8 @@ import AVFoundation
 
 class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecognizerDelegate {
     
+    let blackView = UIView()
+    
     let activityIndicatorView: UIActivityIndicatorView = {
         let aiv = UIActivityIndicatorView(style: .whiteLarge)
         aiv.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +44,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
     
     
     @objc func handleVideo(recognizer : UITapGestureRecognizer) {
+        
         
         
         print("video dismissed..")
@@ -188,6 +191,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
         videoSlider.leftAnchor.constraint(equalTo: currentTimeLabel.rightAnchor).isActive = true
         videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
+        
         backgroundColor = .black
     }
     
@@ -302,7 +306,6 @@ class VideoLauncher: NSObject {
                 UIApplication.shared.setStatusBarHidden(true, with: .fade)
                 
                 
-                
                 //code below fixes warning above
                 
 //                class ViewController: UIViewController {
@@ -332,6 +335,8 @@ class VideoLauncher: NSObject {
         }
     }
 }
+
+
 
 
 
