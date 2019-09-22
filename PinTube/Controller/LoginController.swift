@@ -109,8 +109,8 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        context.localizedCancelTitle = "End Session"
-        context.localizedFallbackTitle = "Use Passcode (2)"
+        context.localizedCancelTitle = "My cancel"
+        context.localizedFallbackTitle = ""
         if #available(iOS 11.0, *) {
             context.localizedReason = "This app needs your authentication."
         } else {
@@ -130,6 +130,25 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func evaluatePolicy() {
         var errorCanEval: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &errorCanEval) {
+            
+            if #available(iOS 11.0, *) {
+                switch context.biometryType {
+                case .faceID:
+                    print("face")
+                case .touchID:
+                    print("touch")
+                case .none:
+                    print("none")
+                @unknown default:
+                    print("unknown")
+                    
+                }
+                
+            } else {
+                // Fallback on earlier versions
+            }
+            
+            
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Fall back title - override reason") { (success, error) in
                 print(success)
                 if let err = error {
