@@ -130,6 +130,26 @@ class LoginController: UIViewController, UITextFieldDelegate {
     func evaluatePolicy() {
         var errorCanEval: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &errorCanEval) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Fall back title - override reason") { (success, error) in
+                print(success)
+                if let err = error {
+                    let evalErrCode = LAError(_nsError: err as NSError)
+                    switch evalErrCode.code {
+                    case LAError.Code.userCancel:
+                        print("user cancelled")
+                    case LAError.Code.userFallback:
+                        print("fallback")
+                    case LAError.Code.authenticationFailed:
+                        print("failed")
+                    default:
+                        print("other error")
+                        
+                        
+                    }
+                    
+                }
+                
+            }
             
         }
         else {
