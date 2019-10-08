@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A5146E7C15655F8F072F79963196DFB1"
+               BlueprintIdentifier = "CDF6F67335EC854B066A8391B0B15435"
                BuildableName = "Pods_PinTube.framework"
                BlueprintName = "Pods-PinTube"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -47,6 +47,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
         
         
         
+        
         print("video dismissed..")
     }
     

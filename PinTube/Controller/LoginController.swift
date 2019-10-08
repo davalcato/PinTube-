@@ -110,7 +110,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         context.localizedCancelTitle = "My cancel"
-        context.localizedFallbackTitle = ""
+        context.localizedFallbackTitle = "Fallback!"
         if #available(iOS 11.0, *) {
             context.localizedReason = "This app needs your authentication."
             context.touchIDAuthenticationAllowableReuseDuration = LATouchIDAuthenticationMaximumAllowableReuseDuration
@@ -161,6 +161,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         print("app cancelled")
                     case LAError.Code.userFallback:
                         print("fallback")
+                        self.promptForCode()
                     case LAError.Code.authenticationFailed:
                         print("failed")
                     default:
@@ -172,9 +173,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 }
                 
             }
-            Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (t) in
-                self.context.invalidate()
-            }
+//            Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (t) in
+//                self.context.invalidate()
+//            }
             
         }
         else {
@@ -261,6 +262,23 @@ class LoginController: UIViewController, UITextFieldDelegate {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
             
         }, completion: nil)
+        
+    }
+    
+    func promptForCode() {
+        let ac = UIAlertController(title: "Enter Code", message: "Enter your user code.", preferredStyle: .alert)
+        
+        ac.addTextField { (tf) in
+            tf.placeholder = "Enter User Code"
+            tf.keyboardType = .numberPad
+            tf.isSecureTextEntry = true
+        }
+        
+        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (aa) in
+            print(ac.textFields?.first?.text ?? "no value")
+        }))
+        
+        self.present(ac, animated: true, completion: nil)
         
     }
     

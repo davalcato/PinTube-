@@ -9,6 +9,8 @@ pod 'SVProgressHUD'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'Firebase/Analytics'
+pod 'Firebase/Messaging'
 
   # Pods for PinTube
 

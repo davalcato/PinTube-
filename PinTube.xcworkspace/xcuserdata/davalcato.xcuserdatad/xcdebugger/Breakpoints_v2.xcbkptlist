@@ -5,30 +5,82 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "A76C03D5-AE62-420E-AC34-38E9C0E73CD2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            condition = "NotificationCenter"
-            continueAfterRunningActions = "No"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E26B02E1-FDF4-4A20-87D3-88B49113A9ED"
+            uuid = "8105D0A6-0EC7-4EFB-B26A-5892872C589D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinTube/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "evaluatePolicy()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8105D0A6-0EC7-4EFB-B26A-5892872C589D - 2ec116be6aea82ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PinTube.LoginController.evaluatePolicy() -&gt; ()"
+                  moduleName = "PinTube"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davalcato/PinTube/PinTube/Controller/LoginController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "442">
+               </Location>
+               <Location
+                  uuid = "8105D0A6-0EC7-4EFB-B26A-5892872C589D - 2ec116be6aea82ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in PinTube.LoginController.evaluatePolicy() -&gt; ()"
+                  moduleName = "PinTube"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/davalcato/PinTube/PinTube/Controller/LoginController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "747">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "493F035B-3FE2-4E33-9DD5-534C2413ADB6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinTube/Controller/LoginController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
+            landmarkName = "promptForCode()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D48BF966-F15D-4ACB-AD6C-AFEAE5B31350"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinTube/Controller/LoginController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "promptForCode()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

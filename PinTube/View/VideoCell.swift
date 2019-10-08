@@ -86,6 +86,7 @@ class VideoCell: BaseCell {
         let imageView = CustomImageView()
         imageView.image = UIImage(named: "sunshine")
         imageView.contentMode = .scaleAspectFill
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         return imageView
     }()

@@ -22,9 +22,7 @@ class SettingCell: BaseCell {
             
         }
         
-        
     }
-    
     
     var setting: Setting? {
         didSet {
@@ -32,13 +30,11 @@ class SettingCell: BaseCell {
             
             if let imageName =  setting?.imageName {
                 iconImageView.image = UIImage(named: imageName)
-                
             }
             
         }
         
     }
-    
     
     let nameLabel: UILabel = {
         let label = UILabel()

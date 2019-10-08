@@ -63,6 +63,10 @@ class FeedCell: BaseCell, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         _ = (frame.width - 16 - 16) * 9 / 16
         return CGSize(width: 330, height: 400)
+        
+        // Measurements for the Xr iPhone
+//        return CGSize(width: 430, height: 500)
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
