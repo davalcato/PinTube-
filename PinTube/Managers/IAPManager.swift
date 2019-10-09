@@ -30,7 +30,11 @@ class IAPManager: NSObject, SKProductsRequestDelegate {
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        <#code#>
+        self.products = response.products
+        print("products: \(self.products)")
+        
+        
+        
     }
     
 }
