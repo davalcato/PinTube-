@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 
 
-class IAPManager: NSObject {
+class IAPManager: NSObject, SKProductsRequestDelegate {
     static let sharedInstance = IAPManager()
     
     
@@ -25,9 +25,13 @@ class IAPManager: NSObject {
             
         }
         
+        completion(false)
         
     }
     
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        <#code#>
+    }
     
 }
 
