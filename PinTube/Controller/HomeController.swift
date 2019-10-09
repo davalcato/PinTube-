@@ -276,6 +276,15 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
 }
 
+// MARK: Ask For Review
+
+func askForReview() {
+    SKS
+    
+    
+}
+
+
 
 
 
