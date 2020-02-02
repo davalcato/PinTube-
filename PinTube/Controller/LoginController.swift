@@ -109,7 +109,7 @@ class LoginController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        context.localizedCancelTitle = "My cancel"
+        context.localizedCancelTitle = "End session"
         context.localizedFallbackTitle = "Fallback!"
         if #available(iOS 11.0, *) {
             context.localizedReason = "This app needs your authentication."
@@ -147,6 +147,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 
             } else {
                 // Fallback on earlier versions
+                print("can't evaluate")
+
+                
             }
             
             
@@ -188,10 +191,10 @@ class LoginController: UIViewController, UITextFieldDelegate {
                 switch evalErrCode.code {
                 case LAError.Code.biometryNotEnrolled:
                     print("not enrolled")
-//                case LAError.Code.userFallback:
-//                    print("fallback")
-//                case LAError.Code.authenticationFailed:
-//                    print("failed")
+                case LAError.Code.userFallback:
+                    print("fallback")
+                case LAError.Code.authenticationFailed:
+                    print("failed")
                 default:
                     print("other error")
                     

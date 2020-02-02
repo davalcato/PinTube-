@@ -37,16 +37,17 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
         return button
     }()
     
+   
+    
     
     // Handle the tap
     
     // @objc func handleVideo(note: NSNotification) {
     
     
-    @objc func handleVideo(recognizer : UITapGestureRecognizer) {
+    @objc func handleVideo(note: NSNotification) {
         
-        
-        
+
         
         print("video dismissed..")
     }
@@ -62,7 +63,7 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
         
         button.addTarget(self, action: #selector(handlePause), for: .touchUpInside)
         return button
-        
+         
     }()
     
     

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import StoreKit
 
 class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -45,6 +46,12 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
             let employeedata = snapshot.value as? [String:Any]
             
             authenticateUserAndConfigureView()
+        
+//            let time = DispatchTime.now() + 3
+//            DispatchQueue.main.asyncAfter(deadline: time) {
+//                IAPManager.sharedInstance.askForReview()
+//            }
+            
         }
         
         
@@ -276,13 +283,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
 }
 
-// MARK: Ask For Review
-
-func askForReview() {
-    SKS
-    
-    
-}
 
 
 

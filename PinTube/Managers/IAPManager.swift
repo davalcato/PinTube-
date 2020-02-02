@@ -33,8 +33,17 @@ class IAPManager: NSObject, SKProductsRequestDelegate {
         self.products = response.products
         print("products: \(self.products)")
         
-        
-        
+    }
+    
+}
+
+// MARK: Ask For Review
+
+func askForReview() {
+    if #available(iOS 10.3, *) {
+        SKStoreReviewController.requestReview()
+    } else {
+        // Fallback on earlier versions
     }
     
 }
