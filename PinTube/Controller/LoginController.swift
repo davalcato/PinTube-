@@ -169,8 +169,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                         print("failed")
                     default:
                         print("other error")
-                        
-                        
                     }
                     
                 }
@@ -197,8 +195,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
                     print("failed")
                 default:
                     print("other error")
-                    
-                    
                 }
                 
             }
@@ -206,7 +202,6 @@ class LoginController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -355,49 +350,47 @@ extension UIViewController {
 
 
 
+/*
 
+extension LoginController: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
 
+        if let error = error {
+            print("Failed to sign in with error:", error)
+            return
+        }
 
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
 
-//extension LoginController: GIDSignInDelegate {
-//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-//
-//        if let error = error {
-//            print("Failed to sign in with error:", error)
-//            return
-//        }
-//
-//        guard let authentication = user.authentication else { return }
-//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-//
-//        Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
-//
-//            if let error = error {
-//                print("Failed to sign in and retrieve data with error:", error)
-//                return
-//            }
-//
-//            guard let uid = result?.user.uid else { return }
-//            guard let email = result?.user.email else { return }
-//            guard let username = result?.user.displayName else { return }
-//
-//            let values = ["email": email, "username": username]
-//
-//            Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock: { (error, ref) in
-//                guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
-//                guard let controller = navController.viewControllers[0] as? HomeController else { return }
-//                controller.configureViewComponents()
-//
-//                // forgot to add this in video
-//                controller.loadUserData()
-//
-//                self.dismiss(animated: true, completion: nil)
-//            })
-//        }
-//    }
-//}
+        Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
 
+            if let error = error {
+                print("Failed to sign in and retrieve data with error:", error)
+                return
+            }
 
+            guard let uid = result?.user.uid else { return }
+            guard let email = result?.user.email else { return }
+            guard let username = result?.user.displayName else { return }
+
+            let values = ["email": email, "username": username]
+
+            Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock: { (error, ref) in
+                guard let navController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+                guard let controller = navController.viewControllers[0] as? HomeController else { return }
+                controller.configureViewComponents()
+
+                // forgot to add this in video
+                controller.loadUserData()
+
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
+}
+
+*/
 
 
 

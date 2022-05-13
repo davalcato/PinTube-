@@ -10,6 +10,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
+
 class BaseCell: UICollectionViewCell {
     
     override init(frame: CGRect) {

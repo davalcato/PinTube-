@@ -31,23 +31,20 @@ class VideoPlayerView: UIView, AVPlayerViewControllerDelegate, UIGestureRecogniz
         button.tintColor = .white
         button.isHidden = true
         
-        button.addTarget(self, action: #selector(handleVideo), for: .touchUpInside)
         
+        
+        button.addTarget(self, action: #selector(handleVideo), for: .touchUpInside)
         
         return button
     }()
-    
-   
-    
     
     // Handle the tap
     
     // @objc func handleVideo(note: NSNotification) {
     
-    
-    @objc func handleVideo(note: NSNotification) {
+    @objc private func handleVideo() {
+//        dismiss(animated: true, completion: nil)
         
-
         
         print("video dismissed..")
     }
